@@ -1,5 +1,7 @@
 
 <% if signed_in? %>
 	<%= link_to "logout", sign_out_path, method: "delete"  %>
+	<% @posts.each do |post| %>
+		 <%= post.title%><%= link_to "delete", post_path, method: "delete" %>
 <% end %>
-
+<% end %>

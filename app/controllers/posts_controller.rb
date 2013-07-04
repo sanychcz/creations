@@ -34,4 +34,9 @@ class PostsController < ApplicationController
 			render 'edit'
 		end
 	end	
+
+	def destroy
+		@post = Post.find(params[:id])
+		redirect_to @user 
+	end
 end
