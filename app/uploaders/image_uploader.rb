@@ -18,7 +18,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     #{}"uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-    "#{Rails.root.join('assets', 'images')}/#{model.class.to_s.underscore}/#{model.id}"
+    "public/#{model.class.to_s.underscore}/images"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
@@ -38,7 +38,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb_main do
-    process :scale => [260, 260]
+    process :resize_to_limit => [260, 260]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

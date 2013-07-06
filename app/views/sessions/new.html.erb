@@ -1,13 +1,17 @@
-<h1>Sign in</h1>
+<div id="sessions">
+	<h1>Sign in</h1>
 
-	<%= form_for(:session, url: sessions_path) do |f| %>
+		<div class="signin-form">
+			<%= form_for(:session, url: sessions_path) do |f| %>
 
-		<%= f.label :email %>
-  	<%= f.text_field :email %>
+			<p><%= f.label :email %></p>
+  		<p><%= f.text_field :email %></p>
 
-  	<%= f.label :password %>
-  	<%= f.password_field :password %>
+  		<p><%= f.label :password %></p>
+  		<p><%= f.password_field :password %></p>
 
- 		<%= f.submit "login"%>
+	 		<p><%= f.submit "Login", class: "signin-button" %></p>
 
- 	<% end %>	
+ 			<% end %>
+ 		</div>	
+</div> 	

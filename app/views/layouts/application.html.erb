@@ -5,9 +5,15 @@
   
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag :defaults, "nested_form" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="bg_image1">
+	<div id="all-signout">
+		<% if signed_in? %>
+			<%= link_to "sign out", sign_out_path, method: "delete" %>
+		<% end %>
+	</div>	
 
 <%= yield %>
 

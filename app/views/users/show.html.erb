@@ -1,7 +1,25 @@
+<div id="user-show">
 
-<% if signed_in? %>
-	<%= link_to "logout", sign_out_path, method: "delete"  %>
-	<% @posts.each do |post| %>
-		 <%= post.title%><%= link_to "delete", post_path, method: "delete" %>
-<% end %>
-<% end %>
+	<div class="user-greeting">
+		<h1>Welcome, my Admin!</h1>
+	</div>	
+
+	<div class="user-possibilities">
+		<h1>You can:</h1>
+
+		<div class="possibility-1">
+			<h2><%= link_to "create new portfolio item", new_post_path %></h2>
+		</div>
+
+		<div class="possibility-2">
+		<h2>manage existing</h2>
+
+		<% @posts.each do |post| %>
+			<p><%= link_to post.title, post_path(post)  %>
+			<%= link_to "edit", edit_post_path(post) %>
+			<%= link_to "delete", post_path(post), method: :delete, data: { confirm: "You sure?" } %></p>
+		<% end %>
+		</div>
+		<div class="clearing"></div>
+	</div>	
+</div>

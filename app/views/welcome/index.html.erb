@@ -1,0 +1,78 @@
+	<section id="header">
+		<div class="logo">
+			<%= image_tag "mc_logo.png" %>
+		</div>
+		<div class="top_space"><p class="top_label">&mdash;&nbsp;Hello, welcome to&nbsp;our studio website</p>
+		</div>
+		<div id="menu">
+			<table>
+				<tr>
+					<td><a href="#">work</a></td>
+					<td><a href="#">about&nbsp;us</a></td>
+					<td><a href="#">contact</a></td>
+				</tr>
+			</table>
+		</div>
+	</section>	
+
+	<div id="top-pic">
+		<section id="sec">
+			<div class="wrap">
+				<div class="box colour1">
+					<h1> We want your money</h1>
+					<p>Driving this road down to paradise,
+					letting the sunlight into my eyes our only plan is to improvise and it's crystal clear 
+					that I don't ever want it to end.</p>
+					<p>If I had my way, I would never leave, keep building these random memories turning our
+					days into melodies. But since I can't stay, I'll just keep playing back these fragments of time.
+					Everywhere I go, these moments will shine. I'll just keep playing back these fragments of time. 
+					Everywhere I go, these moments will shine.</p>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</section>
+	</div>
+
+	<section id="teasers">
+		<div id="teasers-wrapper">
+			<div class="wrap">
+			<% @posts.each do |post| %>
+					<% post.photos.each do |ph| %>
+						<% if ph.onmain? %>
+							<%= image_tag ph.image_url.to_s %>
+						<% end %>	
+					<% end %>
+					<%= link_to post.annotation, post, :class=> "teaser-descr" %>
+				<% end %>		
+				</div>
+		</div>	
+		<div class="clear"></div>
+	</section>
+
+	<section id="soc-nets">
+		<p id="soc-text">Yes, we like making friends</p>
+		<div id="soc-icons">
+			<a href="#" class="soc-link"><%= image_tag "fb_icon.png" %></a>
+			<a href="#" class="soc-link"><%= image_tag "dribbble_icon.png" %></a>
+			<a href="#" class="soc-link"><%= image_tag "inst_icon.png" %></a>
+			<a href="#" class="soc-link"><%= image_tag "tw_icon.png" %></a>
+		</div>
+	</section>
+
+	<section id="footer">
+		<div class="wrap">
+			<h3>Contact us</h3>
+			<table id="footer-table">
+				<tr>
+					<th>Address</th>
+					<th>Telephone</th>
+					<th>Email</th>
+				</tr>
+				<tr>
+					<td>Legerova 39/1490 12000<br>Praha 2, Czech republic</td>
+					<td>+420 775 500 447</td>
+					<td><a href="mailto:mighty@creations.cz">mighty@creations.cz<a></td>
+				</tr>
+			</table>
+		</div>
+	</section>

@@ -8,7 +8,7 @@ class PostsController < ApplicationController
 	def create
 		@post = Post.new(params[:post])
 		if @post.save
-			redirect_to @post
+			redirect_to current_user
 		else
 			render 'new'
 		end
@@ -36,7 +36,7 @@ class PostsController < ApplicationController
 	end	
 
 	def destroy
-		@post = Post.find(params[:id])
-		redirect_to @user 
+		Post.find(params[:id]).destroy
+		redirect_to current_user 
 	end
 end

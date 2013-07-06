@@ -8,6 +8,7 @@ gem 'rails', '3.2.13'
 gem 'bcrypt-ruby'
 gem 'carrierwave'
 gem 'rmagick'
+gem "nested_form"
 
 group :development, :test do
 	gem 'sqlite3'

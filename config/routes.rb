@@ -1,8 +1,9 @@
 Creations::Application.routes.draw do
 
-  resources :users
+  get "welcome/index"
+
+  resources :users, :posts, :photos
   resources :sessions, only: [:new, :create, :destroy]
-  resources :posts
 
   match 'sign_in', to: 'sessions#new'
   match 'sign_out', to: 'sessions#destroy', via: :delete
@@ -56,7 +57,7 @@ Creations::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'posts#index'
+  root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 

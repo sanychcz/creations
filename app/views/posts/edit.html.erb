@@ -1,21 +1,35 @@
-<%= form_for @post do |f| %>
-  <% if @post.errors.any? %>
-      <h2>Form is invalid</h2>
-      <ul>
-        <% for message in @post.errors.full_messages %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-  <% end %>
+<div id="posts">
+  <h1>Do it! Make a new post!</h1>
+  <div class="newpost-form">
+    <%= nested_form_for @post do |f| %>
+      <% if @post.errors.any? %>
+        <h2>Form is invalid</h2>
+        <ul>
+          <% for message in @post.errors.full_messages %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
 
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+      <p><%= f.label :title %></p>
+      <p><%= f.text_field :title %></p>
 
-    <%= f.label :annotation %>
-    <%= f.text_area :annotation %>
+      <p><%= f.label :annotation %></p>
+      <p><%= f.text_field :annotation %></p>
 
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+      <p><%= f.label :description %></p>
+      <p><%= f.text_area :description %></p>   
 
-    <%= f.submit %>
-<% end %>
+      <%= f.fields_for :photos do |photo| %>
+        <%= photo.label :image %>
+        <%= photo.file_field :image %>
+        <%= photo.link_to_remove "Remove photo" %>
+        <p>"On main?"<%= photo.check_box :onmain, { :checked => false } %></p>
+      <% end %>
+
+      <p><%= f.link_to_add "Add a photo", :photos %></p>
+
+      <%= f.submit %>
+    <% end %>
+  </div>  
+</div>
