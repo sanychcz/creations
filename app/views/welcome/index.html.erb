@@ -13,6 +13,12 @@
 				</tr>
 			</table>
 		</div>
+		<div id="all-signout">
+		<% if signed_in? %>
+			<%= link_to "sign out", sign_out_path, method: "delete" %>  |
+			<%= link_to "profile", current_user %>
+		<% end %>
+		</div>	
 	</section>	
 
 	<div id="top-pic">
@@ -35,16 +41,16 @@
 
 	<section id="teasers">
 		<div id="teasers-wrapper">
-			<div class="wrap">
 			<% @posts.each do |post| %>
+				<div class="wrap">
 					<% post.photos.each do |ph| %>
 						<% if ph.onmain? %>
 							<%= image_tag ph.image_url.to_s %>
 						<% end %>	
 					<% end %>
 					<%= link_to post.annotation, post, :class=> "teaser-descr" %>
-				<% end %>		
 				</div>
+			<% end %>		
 		</div>	
 		<div class="clear"></div>
 	</section>

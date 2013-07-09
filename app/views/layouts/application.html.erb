@@ -6,12 +6,15 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag :defaults, "nested_form" %>
+  <%= javascript_include_tag "hover" %>
   <%= csrf_meta_tags %>
 </head>
 <body class="bg_image1">
 	<div id="all-signout">
 		<% if signed_in? %>
-			<%= link_to "sign out", sign_out_path, method: "delete" %>
+			<%= link_to "sign out", sign_out_path, method: "delete" %>  |
+			<%= link_to "profile", current_user %>  |
+			<%= link_to "main", root_url %>
 		<% end %>
 	</div>	
 
