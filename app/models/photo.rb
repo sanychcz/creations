@@ -1,6 +1,6 @@
 class Photo < ActiveRecord::Base
   
-  attr_accessible :image, :post_id, :onmain, :name
+  attr_accessible :image, :post_id, :onmain, :name, :portfolio
 
   mount_uploader :image, ImageUploader
   

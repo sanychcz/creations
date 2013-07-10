@@ -259,3 +259,37 @@ font-size:0.9em;
 padding-top:0.3em;
 vertical-align:top;
 }
+
+@media only screen and (max-width : 2500px),
+only screen and (max-device-width : 2500px){
+    #teasers .wrap {width:11%;}
+}
+
+@media only screen and (max-width : 2200px),
+only screen and (max-device-width : 2200px){
+    #teasers .wrap {width:14%;}
+}
+
+@media only screen and (max-width : 1920px),
+only screen and (max-device-width : 1920px){
+    #teasers .wrap {width:17%;}
+}
+
+@media only screen and (max-width : 1600px),
+only screen and (max-device-width : 1600px){
+    #teasers .wrap {width:21%;}
+}
+
+@media only screen and (max-width : 1200px),
+only screen and (max-device-width : 1200px){
+    #teasers .wrap {width:26%;}
+}
+
+@media only screen and (max-width : 940px),
+only screen and (max-device-width : 940px){
+    #teasers .wrap {width:40%;}
+}
+
+@media only screen and (max-width : 600px),
+only screen and (max-device-width : 600px){
+    #teasers .wrap {width: 100%;}

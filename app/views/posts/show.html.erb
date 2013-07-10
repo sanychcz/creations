@@ -3,5 +3,7 @@
 <%= @post.title %>
 <%= @post.description %>
 <% @post.photos.each do |photo|%>
-	<%= image_tag photo.image_url.to_s %>
+	<% if photo.portfolio? %>
+		<%= image_tag photo.image_url.to_s %>
+	<% end %>	
 <% end %>
