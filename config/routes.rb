@@ -1,8 +1,9 @@
 Creations::Application.routes.draw do
 
-  get "welcome/index"
+  match 'contact', to: 'welcome#contact'
+  match 'about', to: 'welcome#about'
 
-  resources :users, :posts, :photos
+  resources :users, :posts, :photos, :post_categories
   resources :sessions, only: [:new, :create, :destroy]
 
   match 'sign_in', to: 'sessions#new'

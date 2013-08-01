@@ -13,14 +13,29 @@
         </ul>
       <% end %>
 
-      <p><%= f.label :title %></p>
-      <p><%= f.text_field :title %></p>
+      <p><%= f.label :title %>
+      <%= f.text_field :title %></p>
 
-      <p><%= f.label :annotation %></p>
-      <p><%= f.text_field :annotation %></p>
+      <p><%= f.label :subtitle %>
+      <%= f.text_field :subtitle %></p>
+
+      <p><%= f.label :annotation %>
+      <%= f.text_field :annotation %></p>
+
+      <p><%= f.label :year %>
+      <%= f.text_field :year %></p>
+
+      <p><%= f.label :industry %>
+      <%= f.text_field :industry %></p>
+
+      <p><%= f.label :task %>
+      <%= f.text_field :task %></p> 
+
+      <p><%= f.label :post_category %>
+      <%= f.collection_select :post_category, PostCategory.all, :name, :name %> or <%= link_to "add more", new_post_category_path %></p> 
 
       <p><%= f.label :description %></p>
-      <p><%= f.text_area :description %></p>   
+      <p><%= f.text_area :description %></p> 
 
       <%= f.fields_for :photos do |photo| %>
         <p><%= photo.label "image name" %>

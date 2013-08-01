@@ -1,0 +1,12 @@
+<h1>Edit post category</h1>
+
+<%= form_for @post_category do |f| %>
+	
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+
+	<%= f.submit %>
+	
+<% end %>
+
+<p><%= link_to "Back to profile", current_user %></p>

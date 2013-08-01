@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130710153012) do
+ActiveRecord::Schema.define(:version => 20130801090455) do
 
   create_table "photos", :force => true do |t|
     t.datetime "created_at",                    :null => false
@@ -23,12 +23,23 @@ ActiveRecord::Schema.define(:version => 20130710153012) do
     t.boolean  "portfolio",  :default => true
   end
 
+  create_table "post_categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.string   "annotation"
+    t.string   "post_category"
+    t.integer  "year"
+    t.string   "industry"
+    t.string   "subtitle"
+    t.string   "task"
   end
 
   create_table "users", :force => true do |t|

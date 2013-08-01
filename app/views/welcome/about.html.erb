@@ -40,19 +40,7 @@
 	</div>
 
 	<section id="teasers">
-		<div id="teasers-wrapper">
-			<% @posts.each do |post| %>
-				<div class="wrap">
-					<% post.photos.each do |ph| %>
-						<% if ph.onmain? %>
-							<%= image_tag ph.image_url.to_s, :class => "main-image" %>							
-						<% end %>	
-					<% end %>
-					<%= link_to post.annotation, post, :class=> "teaser-descr" %>
-				</div>
-			<% end %>		
-		</div>	
-		<div class="clear"></div>
+		
 	</section>
 
 
