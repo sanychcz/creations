@@ -1,0 +1,13 @@
+<div style="width: 200px; margin:auto;">
+	<h1><%= @work.name %></h1>
+</div>
+
+<div style="width: 500px; margin:auto;">
+<p><% @work.posts.each do |post| %></p>
+	<p><%= link_to post.title, work_post_path(@work, post) %></p>
+<% end %>
+</div>
+
+<div style="width: 300px; margin:auto;">
+	<p><%= link_to "back to profile", current_user %> | <%= link_to "add post to work", new_work_post_path(@work) %></p>
+<div>	

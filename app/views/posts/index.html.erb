@@ -2,5 +2,6 @@
 <% @posts.each do |post| %>
 	<%= post.title %>
 	<%= post.annotation %>
+	<%= link_to post.title, work_post_path(post) %>
 <% end %>
 

@@ -8,27 +8,24 @@
 		<h1>You can:</h1>
 
 		<div class="possibility-1">
-			<h2><%= link_to "create new portfolio item", new_post_path %></h2>
+			<h2><%= link_to "create new work", new_work_path %></h2>
+			<h2>manage existing works</h2>
+				<% @works.each do |work| %>
+					<h4><%= link_to work.name, work %></h4>
+				<% end %>
 			<h2><%= link_to "create new item category", new_post_category_path %></h2>
+			<h2>manage existing categories</h2>
+
+			<% @post_categories.each do |post_category| %>
+				<%= post_category.name  %>
+				<%= link_to "edit", edit_post_category_path(post_category) %>
+				<%= link_to "delete", post_category_path(post_category), method: :delete, data: { confirm: "You sure?" } %></p>
+			<% end %>			
 		</div>
 
-
-
-		<div class="possibility-2">
-		<h2>manage existing</h2>
-
-		<% @post_categories.each do |post_category| %>
-			<%= post_category.name  %>
-			<%= link_to "edit", edit_post_category_path(post_category) %>
-			<%= link_to "delete", post_category_path(post_category), method: :delete, data: { confirm: "You sure?" } %></p>
-		<% end %>	
-
-		<% @posts.each do |post| %>
-			<p><%= link_to post.title, post_path(post)  %>
-			<%= link_to "edit", edit_post_path(post) %>
-			<%= link_to "delete", post_path(post), method: :delete, data: { confirm: "You sure?" } %></p>
-		<% end %>
+		<div class="possibility-2">		
 		</div>
 		<div class="clearing"></div>
 	</div>	
 </div>
+

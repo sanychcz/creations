@@ -3,7 +3,7 @@
 <div id="posts">
   <h1>Do it! Make a new post!</h1>
   <div class="newpost-form">
-    <%= nested_form_for @post do |f| %>
+    <%= nested_form_for [@work, @post] do |f| %>
       <% if @post.errors.any? %>
         <h2>Form is invalid</h2>
         <ul>
@@ -32,7 +32,7 @@
       <%= f.text_field :task %></p> 
 
       <p><%= f.label :post_category %>
-      <%= f.collection_select :post_category, PostCategory.all, :name, :name %> or <%= link_to "add more", new_post_category_path %></p> 
+      <%= f.collection_select :post_category, PostCategory.all, :name, :name %></p> 
 
       <p><%= f.label :description %></p>
       <p><%= f.text_area :description %></p> 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130801090455) do
+ActiveRecord::Schema.define(:version => 20130801120459) do
 
   create_table "photos", :force => true do |t|
     t.datetime "created_at",                    :null => false
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20130801090455) do
     t.string   "industry"
     t.string   "subtitle"
     t.string   "task"
+    t.integer  "work_id"
   end
 
   create_table "users", :force => true do |t|
@@ -47,6 +48,12 @@ ActiveRecord::Schema.define(:version => 20130801090455) do
     t.string   "password_digest"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "works", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

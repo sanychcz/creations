@@ -3,7 +3,12 @@ Creations::Application.routes.draw do
   match 'contact', to: 'welcome#contact'
   match 'about', to: 'welcome#about'
 
-  resources :users, :posts, :photos, :post_categories
+  resources :users, :photos, :post_categories
+
+  resources :works do
+    resources :posts
+  end  
+  
   resources :sessions, only: [:new, :create, :destroy]
 
   match 'sign_in', to: 'sessions#new'
