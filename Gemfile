@@ -9,6 +9,7 @@ gem 'bcrypt-ruby'
 gem 'carrierwave'
 gem 'rmagick'
 gem "nested_form"
+gem 'ckeditor_rails'
 
 group :development, :test do
 	gem 'sqlite3'

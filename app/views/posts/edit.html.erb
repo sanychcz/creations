@@ -33,15 +33,19 @@
       <%= f.collection_select :post_category, PostCategory.all, :name, :name %></p> 
 
       <p><%= f.label :description %></p>
-      <p><%= f.text_area :description %></p> 
+      <p><%= f.text_area :description, :class => 'ckeditor' %></p> 
 
       <%= f.fields_for :photos do |photo| %>
+        <div style="background-color: #9a9a9a;">
         <p><%= photo.label "image name" %>
         <%= photo.text_field :name %></p>
         <p><%= photo.file_field :image %>
         <%= photo.link_to_remove "Remove photo" %></p>
         <p>"On main?"<%= photo.check_box :onmain %></p>
         <p>"Show in portfolio?"<%= photo.check_box :portfolio %></p>
+        <p>"Fullwidth on top?"<%= photo.check_box :fullwidth %></p>
+        <hr />
+      </div>
       <% end %>
 
       <p><%= f.link_to_add "Add a photo", :photos %></p>

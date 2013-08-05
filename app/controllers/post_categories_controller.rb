@@ -31,4 +31,10 @@ class PostCategoriesController < ApplicationController
 			render 'edit'
 		end	
 	end
+
+	def show
+		@post_category = PostCategory.find(params[:id])
+		@works = Work.all
+		@post_categories = PostCategory.all
+	end
 end

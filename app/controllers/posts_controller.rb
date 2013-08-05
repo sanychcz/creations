@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 		@work = Work.find(params[:work_id])
     @post = @work.posts.build(params[:post])
 		if @post.save
-			redirect_to current_user
+			redirect_to work_post_path(@work, @post)
 		else
 			render 'new'
 		end
@@ -41,7 +41,10 @@ class PostsController < ApplicationController
 	end	
 
 	def destroy
-		Post.find(params[:id]).destroy
-		redirect_to current_user 
+		@work = Work.find(params[:work_id])
+		@work.posts.find(params[:id]).destroy
+		redirect_to @work 
 	end
 end
+
+

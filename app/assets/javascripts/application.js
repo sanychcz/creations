@@ -12,5 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require ckeditor-jquery
+//= require ckeditor_fix
+//= require ckeditor/ckeditor
 //= require jquery_nested_form
+//= require_tree .

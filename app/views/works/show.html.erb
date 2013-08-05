@@ -2,12 +2,34 @@
 	<h1><%= @work.name %></h1>
 </div>
 
-<div style="width: 500px; margin:auto;">
-<p><% @work.posts.each do |post| %></p>
-	<p><%= link_to post.title, work_post_path(@work, post) %></p>
+<div style="width: 600px; margin:auto;">
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Subtitle</th>
+    <th>Category</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @work.posts.each do |post| %>
+  <tr>
+    <td><%= post.title %></td>
+    <td><%= post.subtitle %></td>
+    <td><%= post.post_category  %></td>
+    <% if signed_in? %>
+    	<td><%= link_to 'Show',  work_post_path(@work, post) %></td>
+    	<td><%= link_to 'Destroy', work_post_path(@work, post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  	<% end %>
+  </tr>
 <% end %>
+</table>
 </div>
 
-<div style="width: 300px; margin:auto;">
-	<p><%= link_to "back to profile", current_user %> | <%= link_to "add post to work", new_work_post_path(@work) %></p>
-<div>	
+<% if signed_in? %>
+	<div style="width: 600px; margin:auto;">
+		<p><%= link_to "add post to work", new_work_post_path(@work) %> | 
+		<%= link_to "edit work", edit_work_path(@work) %> | <%= link_to "delete #{@work.name}", work_path(@work), method: :delete, data: {confirm: "Are you seure?"} %></p>
+	<div>
+<% end %>	

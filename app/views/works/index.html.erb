@@ -1,5 +1,44 @@
-<% @works.each do |work| %>
-	<% work.posts.each do |post| %>
-		<%=	link_to post.title, work_post_path(post)  %>
+<%= render partial: "shared/header" %>
+
+<%= render partial: "shared/top_picture" %>
+
+<section style="width:80%; margin: 30px 20%;">
+	<div class="test-spisok" style="width:60%; margin:auto;">
+	<ul>
+	<% if current_page?(works_path) %>
+		<li><%= link_to "all", works_path, :class => "active" %></li>
+	<% else %>
+		<li><%= link_to "all", works_path %></li>
+	<% end %>	
+
+	<% @post_categories.each do |pc| %>
+		<li><%= link_to pc.name, pc %></li>
 	<% end %>
-<% end %>
+</ul>
+</div>
+</section>
+
+	<div style="width:600px; margin: auto;"><hr/></div>
+
+<section id="teasers">
+	<div id="teasers-wrapper">
+		<% @works.each do |work| %>
+			<% work.posts.each do |post| %>
+				<div class="wrap">
+					<% post.photos.each do |ph| %>
+						<% if ph.onmain? %>
+							<%= image_tag ph.image_url.to_s,  :class => "main-image" %>
+						<% end %>
+					<% end %>
+					<%= link_to post.title, work_post_path(work, post) %>
+					<%= post.annotation %>
+				</div>
+			<% end %>	
+		<% end %>
+	</div>	
+<div class="clear"></div>
+</section>
+
+<%= render partial: "shared/socials" %>
+
+<%= render partial: "shared/footer" %>

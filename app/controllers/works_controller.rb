@@ -38,5 +38,6 @@ class WorksController < ApplicationController
 
 	def index
 		@works = Work.all
+		@post_categories = PostCategory.all
 	end
 end

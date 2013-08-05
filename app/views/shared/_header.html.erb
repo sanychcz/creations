@@ -1,0 +1,22 @@
+	<section id="header">
+		<div class="logo">
+			<%= link_to (image_tag ("mc_logo.png")), root_path %>
+		</div>
+		<div class="top_space"><p class="top_label">&mdash;&nbsp;Hello, welcome to&nbsp;our studio website</p>
+		</div>
+		<div id="menu">
+			<table>
+				<tr>
+					<td><%= link_to "works", works_path %></td>
+					<td><%= link_to "about us", "/about" %></td>
+					<td><%= link_to "contact", "/contact" %></td>
+				</tr>
+			</table>
+		</div>
+		<div id="all-signout">
+		<% if signed_in? %>
+			<%= link_to "sign out", sign_out_path, method: "delete" %>  |
+			<%= link_to "profile", current_user %>
+		<% end %>
+		</div>	
+	</section>	

@@ -1,11 +1,44 @@
 <% provide(:title, @post.title) %>
 
-<div style="width:600px; margin:auto;">
+<%= render partial: "shared/header" %>
 
-	<h1><%= @post.title %></h1>
-	<h3><%= @post.year %></h3>
-	<h3><%= @post.subtitle %></h3>
-	<h3><%= @post.description %></h3>
+<% @post.photos.each do |photo| %>
+	<% if photo.fullwidth? %>
+		<%= image_tag photo.image_url.to_s, :class => "fullwidth_pic" %>
+	<% end %>
+<% end %>
+
+<section style="width:80%; margin: 30px 20%;">
+<div class="test-spisok" style="width:60%; margin:auto;">
+	<ul>
+	<% @work.posts.each do |post| %>
+		<% if @post.post_category == post.post_category %>
+			<li><%= link_to post.post_category, work_post_path(@work, post), {:class=>"active"} %></li>
+		<% else %>
+			<li><%= link_to post.post_category, work_post_path(@work, post), {:class=>"nonactive"} %></li>
+		<% end %>
+	<% end %>
+</ul>
+</div>
+</section>
+
+<div style="width:900px; margin:auto;">
+	<div style="width:500px; margin: 35px auto 20px auto;">
+		<h1 style="display: inline; font-size: 40px; font-weight: bold; margin-right:30px;"><%= @work.name %></h1><h3 style="display: inline; font-size:25px;"><%= @post.subtitle %></h3>
+	</div>	
+	<hr />
+</div>	
+
+<div class="test-spisok" style="width:900px; margin:auto;">
+	<div style="width:700px; margin: 15px auto 15px auto;">
+		<ul>
+			YEAR:<%= @post.year %></li>
+			INDUSTRY:<li><%= @post.industry %></li>
+			TASK:<li><%= @post.task %></li>
+		</ul>
+	</div>
+	<hr />
+	<%= raw(@post.description) %>
 	<% @post.photos.each do |photo| %>
 		<% if photo.portfolio? %>
 			<%= image_tag photo.image_url.to_s %>
@@ -15,6 +48,11 @@
 
 </div>
 
-<div style="width:600px; margin:auto; ">
-	<%= link_to "edit post", edit_work_post_path(@work, @post) %> | <%= link_to "back to work", work_path(@work) %>
-</div>
+<% if signed_in? %>
+	<div style="width:600px; margin:auto; ">
+		<%= link_to "delete post", work_post_path(@work, @post), method: :delete, data: { confirm: "You sure?" } %>  | <%= link_to "edit post", edit_work_post_path(@work, @post) %> | <%= link_to "back to work", work_path(@work) %> 
+	</div>
+<% end %>
+
+<%= render partial: "shared/socials" %>
+<%= render partial: "shared/footer" %>

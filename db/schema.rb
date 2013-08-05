@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130801120459) do
+ActiveRecord::Schema.define(:version => 20130802092515) do
 
   create_table "photos", :force => true do |t|
     t.datetime "created_at",                    :null => false
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20130801120459) do
     t.boolean  "onmain",     :default => false
     t.string   "name"
     t.boolean  "portfolio",  :default => true
+    t.boolean  "fullwidth",  :default => false
   end
 
   create_table "post_categories", :force => true do |t|
