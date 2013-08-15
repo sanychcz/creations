@@ -7,25 +7,41 @@
 	<div class="user-possibilities">
 		<h1>You can:</h1>
 
-		<div class="possibility-1">
-			<h2><%= link_to "create new work", new_work_path %></h2>
-			<h2>manage existing works</h2>
-				<% @works.each do |work| %>
-					<h4><%= link_to work.name, work %></h4>
-				<% end %>
-			<h2><%= link_to "create new item category", new_post_category_path %></h2>
-			<h2>manage existing categories</h2>
-
+		<table>
+			<tr><%= link_to "create new work", new_work_path, :class=> "user-links" %></tr>
+			<tr>
+				<th>Work names</th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+			<% @works.each do |work| %>
+			<tr>
+				<td><%= work.name %></td>
+				<td><%= link_to "show", work, :class=> "user-links" %></td>
+				<td><%= link_to "edit", edit_work_path(work), :class=> "user-links" %></td>
+				<td><%= link_to "delete", work, method: :delete, data: { confirm: "You sure?" }, :class=> "user-links" %></td>
+			</tr>
+			<% end %>	
+		</table>
+		<hr />
+		<table>
+			<tr><%= link_to "create new item category", new_post_category_path, :class=> "user-links" %></tr>
+			<tr>
+				<th>Category names</th>
+				<th></th>
+				<th></th>
+			</tr>
 			<% @post_categories.each do |post_category| %>
-				<%= post_category.name  %>
-				<%= link_to "edit", edit_post_category_path(post_category) %>
-				<%= link_to "delete", post_category_path(post_category), method: :delete, data: { confirm: "You sure?" } %></p>
-			<% end %>			
-		</div>
-
-		<div class="possibility-2">		
-		</div>
-		<div class="clearing"></div>
+				<tr>
+					<td><%= post_category.name %></td>
+					<td><%= link_to "edit", edit_post_category_path(post_category), :class=> "user-links" %></td>
+					<td><%= link_to "delete", post_category_path(post_category), method: :delete, data: { confirm: "You sure?" }, :class=> "user-links" %></td>	
+			</tr>
+			<% end %>
+		</table>
 	</div>	
 </div>
+
 

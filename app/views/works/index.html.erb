@@ -1,24 +1,22 @@
-<%= render partial: "shared/header" %>
-
 <%= render partial: "shared/top_picture" %>
 
-<section style="width:80%; margin: 30px 20%;">
-	<div class="test-spisok" style="width:60%; margin:auto;">
+<section style="width:80%; margin: 30px 10%; text-align:center;">
+	<div class="test-spisok" style="width:60%; margin:auto; text-align:center;">
 	<ul>
 	<% if current_page?(works_path) %>
-		<li><%= link_to "all", works_path, :class => "active" %></li>
+		<li><%= link_to "Everything", works_path, :class => "active" %></li>
 	<% else %>
-		<li><%= link_to "all", works_path %></li>
+		<li><%= link_to "Everything", works_path, :class => "works-menu" %></li>
 	<% end %>	
 
 	<% @post_categories.each do |pc| %>
-		<li><%= link_to pc.name, pc %></li>
+		<li><%= link_to pc.name, pc, :class => "works-menu" %></li>
 	<% end %>
 </ul>
 </div>
 </section>
 
-	<div style="width:600px; margin: auto;"><hr/></div>
+	<div style="width:70%; margin: auto 15%;"><hr/></div>
 
 <section id="teasers">
 	<div id="teasers-wrapper">
@@ -30,7 +28,7 @@
 							<%= image_tag ph.image_url.to_s,  :class => "main-image" %>
 						<% end %>
 					<% end %>
-					<%= link_to post.title, work_post_path(work, post) %>
+					<%= link_to post.title, work_post_path(work, post), :class => "post-title" %>
 					<%= post.annotation %>
 				</div>
 			<% end %>	
@@ -38,7 +36,3 @@
 	</div>	
 <div class="clear"></div>
 </section>
-
-<%= render partial: "shared/socials" %>
-
-<%= render partial: "shared/footer" %>

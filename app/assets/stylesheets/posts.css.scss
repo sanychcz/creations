@@ -11,22 +11,26 @@
 
 .active {
 	color: white;
-	background-color: red;
+	background-color: #ef1b70;
 }
 
 a.active {
 	color: white;
 	padding: 5px 10px;
-	background-color: red;
+	background-color: #ef1b70;
 }
 
 .nonactive {
 	color: blue;
 }
 
+a.works-menu {
+	color: #4CCAF6;
+	padding: 5px 10px;
+}
+
 .test-spisok ul li {
 	display:inline;
-	padding:5px;
 }
 
 .fullwidth_pic {
@@ -37,4 +41,12 @@ a.active {
 .full img {
   width:100%;
   max-height: 200px;
+}
+
+a.post-title {
+	color: #4CCAF6;
+}
+
+.item-title {
+	color: #4CCAF6;
 }

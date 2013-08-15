@@ -5,10 +5,9 @@
 <div style="width: 600px; margin:auto;">
 <table>
   <tr>
-    <th>Name</th>
-    <th>Subtitle</th>
-    <th>Category</th>
-    <th></th>
+    <th>Post name</th>
+    <th>Post subtitle</th>
+    <th>Post category</th>
     <th></th>
     <th></th>
   </tr>
@@ -19,8 +18,9 @@
     <td><%= post.subtitle %></td>
     <td><%= post.post_category  %></td>
     <% if signed_in? %>
-    	<td><%= link_to 'Show',  work_post_path(@work, post) %></td>
-    	<td><%= link_to 'Destroy', work_post_path(@work, post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    	<td><%= link_to 'show',  work_post_path(@work, post) %></td>
+      <td><%= link_to 'edit',  edit_work_post_path(@work, post) %></td>
+    	<td><%= link_to 'delete', work_post_path(@work, post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   	<% end %>
   </tr>
 <% end %>
@@ -30,6 +30,6 @@
 <% if signed_in? %>
 	<div style="width: 600px; margin:auto;">
 		<p><%= link_to "add post to work", new_work_post_path(@work) %> | 
-		<%= link_to "edit work", edit_work_path(@work) %> | <%= link_to "delete #{@work.name}", work_path(@work), method: :delete, data: {confirm: "Are you seure?"} %></p>
+		<%= link_to "edit work", edit_work_path(@work) %> | <%= link_to "delete work - #{@work.name}", work_path(@work), method: :delete, data: {confirm: "Are you seure?"} %></p>
 	<div>
 <% end %>	

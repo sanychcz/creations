@@ -1,25 +1,20 @@
-<%= render partial: "shared/header" %>	
-
 <%= render partial: "shared/top_picture" %>
 
 	<section id="teasers">
 		<div id="teasers-wrapper">
 			<% @works.each do |work| %>
-				<% work.posts.each do |post| %>
-					<div class="wrap">
+				<% work.posts.each do |post| %>		
 						<% post.photos.each do |ph| %>
 							<% if ph.onmain? %>
-								<%= image_tag ph.image_url.to_s,  :class => "main-image" %>
+								<div class="wrap">
+									<%= image_tag ph.image_url.to_s,  :class => "main-image" %>
+									<%= link_to post.title, work_post_path(work, post), :class => "post-title" %> <%= post.annotation %>
+								</div>
 							<% end %>
-						<% end %>
-					<%= link_to post.annotation, work_post_path(work, post), :class=> "teaser-descr" %>
-					</div>
+						<% end %>	
 				<% end %>	
 			<% end %>
 		</div>	
 		<div class="clear"></div>
 	</section>
 
-<%= render partial: "shared/socials" %>
-
-<%= render partial: "shared/footer" %>

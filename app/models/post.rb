@@ -12,4 +12,8 @@ class Post < ActiveRecord::Base
 
    accepts_nested_attributes_for :photos, :allow_destroy => true
 
+   before_save { |post| post.industry = industry.upcase }
+   before_save { |post| post.task = task.upcase }
+
+   scope :recent, order("created_at desc").limit(4)
 end

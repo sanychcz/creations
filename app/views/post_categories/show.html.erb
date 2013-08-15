@@ -1,51 +1,27 @@
-<%= render partial: "shared/header" %>
-
 <%= render partial: "shared/top_picture" %>
 
-<section style="width:80%; margin: 30px 20%;">
-	<div class="test-spisok" style="width:60%; margin:auto;">
+<section style="width:80%; margin: 30px 10%; text-align:center;">
+	<div class="test-spisok" style="width:60%; margin:auto; text-align:center;">
 	<ul>
 		<% if current_page?(works_path) %>
-			<li><%= link_to "all", works_path, :class => "active" %></li>
+			<li><%= link_to "Everything", works_path, :class => "active" %></li>
 		<% else %>
-			<li><%= link_to "all", works_path %></li>
+			<li><%= link_to "Everything", works_path, :class => "works-menu"  %></li>
 		<% end %>	
 
 	<% @post_categories.each do |pc| %>
 		<% if pc.name == @post_category.name %>
 			<li><%= link_to pc.name, pc, :class => "active" %></li>
 		<% else %>
-			<li><%= link_to pc.name, pc, :class => "nonactive" %></li>
+			<li><%= link_to pc.name, pc, :class => "works-menu" %></li>
 		<% end %>	
 	<% end %>
 </ul>
 </div>
 </section>
 
-<div style="width:600px; margin: auto;"><hr/></div>
+<div style="width:70%; margin: auto 15%;"><hr/></div>
 
 <section id="teasers">
-	<div id="teasers-wrapper">
-		<% @works.each do |work| %>
-			<% work.posts.each do |post| %>
-				<% if @post_category.name.eql? post.post_category %>
-				<div class="wrap">
-					<% post.photos.each do |photo| %>
-						<% if photo.onmain? %>
-							<%= image_tag photo.image_url.to_s,  :class => "main-image" %>
-							<%= link_to post.title, work_post_path(work, post) %>
-						<% end %>
-					<% end %>	
-				</div>
-				<%= post.annotation %>			
-				<% end %>
-			<% end %>
-		<% end %>
-	</div>
-<div class="clear"></div>	
+	<%= render partial: "category_posts" %>
 </section>
-
-
-<%= render partial: "shared/socials" %>
-
-<%= render partial: "shared/footer" %>

@@ -1,7 +1,5 @@
 <% provide(:title, @post.title) %>
 
-<%= render partial: "shared/header" %>
-
 <% @post.photos.each do |photo| %>
 	<% if photo.fullwidth? %>
 		<%= image_tag photo.image_url.to_s, :class => "fullwidth_pic" %>
@@ -13,7 +11,7 @@
 	<ul>
 	<% @work.posts.each do |post| %>
 		<% if @post.post_category == post.post_category %>
-			<li><%= link_to post.post_category, work_post_path(@work, post), {:class=>"active"} %></li>
+			<li><%= link_to post.post_category, work_post_path(@work, post), {:class=>"active"}  %></li>
 		<% else %>
 			<li><%= link_to post.post_category, work_post_path(@work, post), {:class=>"nonactive"} %></li>
 		<% end %>
@@ -22,37 +20,22 @@
 </div>
 </section>
 
-<div style="width:900px; margin:auto;">
+<div style="width:70%; margin:auto 15%;">
 	<div style="width:500px; margin: 35px auto 20px auto;">
 		<h1 style="display: inline; font-size: 40px; font-weight: bold; margin-right:30px;"><%= @work.name %></h1><h3 style="display: inline; font-size:25px;"><%= @post.subtitle %></h3>
 	</div>	
 	<hr />
 </div>	
 
-<div class="test-spisok" style="width:900px; margin:auto;">
-	<div style="width:700px; margin: 15px auto 15px auto;">
+<div class="test-spisok" style="width:70%; margin:auto 15%;">
+	<div style="width:90%; margin: 15px 5%; text-align:center;">
 		<ul>
-			YEAR:<%= @post.year %></li>
-			INDUSTRY:<li><%= @post.industry %></li>
-			TASK:<li><%= @post.task %></li>
+			<li style="color: #4CCAF6; margin: 0 5%;"><span style="color:black; font-weight: bold;"><%= I18n.t(:year) %></span> <%= @post.year %></li>
+			<li style="color: #4CCAF6; margin: 0 5%;"><span style="color:black; font-weight: bold;"><%= I18n.t(:industry) %></span> <%= @post.industry %></li>
+			<li style="color: #4CCAF6; margin: 0 5%;"><span style="color:black; font-weight: bold;"><%= I18n.t(:task) %></span> <%= @post.task %></li>
 		</ul>
 	</div>
 	<hr />
-	<%= raw(@post.description) %>
-	<% @post.photos.each do |photo| %>
-		<% if photo.portfolio? %>
-			<%= image_tag photo.image_url.to_s %>
-			<%= photo.name %>
-		<% end %>
-	<% end %>
+</div>	
 
-</div>
-
-<% if signed_in? %>
-	<div style="width:600px; margin:auto; ">
-		<%= link_to "delete post", work_post_path(@work, @post), method: :delete, data: { confirm: "You sure?" } %>  | <%= link_to "edit post", edit_work_post_path(@work, @post) %> | <%= link_to "back to work", work_path(@work) %> 
-	</div>
-<% end %>
-
-<%= render partial: "shared/socials" %>
-<%= render partial: "shared/footer" %>
+<%= render partial: @post %>

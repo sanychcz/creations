@@ -43,7 +43,6 @@ input.signup-button {
 #user-show {
 	background-color: #10c3d4;
 	width:600px;
-	height:auto;
 	padding:30px;
 	margin:100px auto 0 auto;
 	.user-greeting h1 {
@@ -54,17 +53,6 @@ input.signup-button {
 	}
 }
 
-.user-possibilities {
-	.possibility-1 {
-		float:left;
-	}
-	h2 {
-		background:white;
-	}
-	.possibility-2 {
-		float:right;
-	}
-	.clearing {
-		clear:both;
-	}
+a.user-links {
+	color: white;
 }

@@ -1,0 +1,17 @@
+<div id="teasers-wrapper">
+	<% @works.each do |work| %>
+		<% work.posts.each do |post| %>
+			<% if @post_category.name.eql? post.post_category %>
+			<div class="wrap">
+				<% post.photos.each do |photo| %>
+					<% if photo.onmain? %>
+						<%= image_tag photo.image_url.to_s,  :class => "main-image" %>
+						<%= link_to post.title, work_post_path(work, post), :class => "post-title" %>
+					<% end %>
+				<% end %>	
+			</div>			
+			<% end %>
+		<% end %>
+	<% end %>
+</div>
+<div class="clear"></div>	

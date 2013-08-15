@@ -1,0 +1,17 @@
+<div style="width:70%; margin:auto 15%; text-align:center;">
+	<%= raw(@post.description) %>
+</div>
+<div style="width:76%; margin:auto 12%; text-align:center;">	
+	<% @post.photos.each do |photo| %>
+		<% if photo.portfolio? %>
+			<%= image_tag photo.image_url.to_s %>
+			<div style="width:70%; margin:auto 15%; text-align:center;"><%= photo.name %></div>
+		<% end %>
+	<% end %>
+</div>
+
+<% if signed_in? %>
+	<div style="width:70%; margin:auto 15%; text-align:center; ">
+		<%= link_to "delete post", work_post_path(@work, @post), method: :delete, data: { confirm: "You sure?" } %>  | <%= link_to "edit post", edit_work_post_path(@work, @post) %> | <%= link_to "back to work", work_path(@work) %> 
+	</div>
+<% end %>

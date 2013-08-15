@@ -1,5 +1,5 @@
 class WorksController < ApplicationController
-	before_filter :signed_in_user, only: [:edit, :update, :create, :new, :destroy ]
+	before_filter :signed_in_user, only: [:edit, :update, :create, :new, :destroy, :show ]
 
 	def new
 		@work = Work.new

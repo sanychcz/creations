@@ -1,5 +1,7 @@
+<% provide(:title, "Editing post") %>
+
 <div id="posts">
-  <h1>Do it! Make a new post!</h1>
+  <h1>Do it! Edit this fucking post!</h1>
   <div class="newpost-form">
     <%= nested_form_for [@work, @post] do |f| %>
       <% if @post.errors.any? %>
@@ -15,10 +17,10 @@
       <%= f.text_field :title %></p>
 
       <p><%= f.label :subtitle %>
-      <%= f.text_field :subtitle %></p>
+      <%= f.text_field :subtitle, :placeholder => "Corporate identity.. On Post page"  %></p>
 
       <p><%= f.label :annotation %>
-      <%= f.text_field :annotation %></p>
+      <%= f.text_field :annotation, :placeholder => "Corporate identity and website.. On main & works page."  %></p>
 
       <p><%= f.label :year %>
       <%= f.text_field :year %></p>

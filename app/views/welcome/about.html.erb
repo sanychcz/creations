@@ -1,16 +1,10 @@
-<%= render partial: "shared/header" %>	
-
 <%= render partial: "shared/top_picture" %>
 
 	<section style="width:900px; margin:auto;">
-		<h1 style="font-size: 40px;">HOW DO WE WORK</h1>
-			<p>Some regional versions contained more nefarious creatures. The stiyaha or kwi-kwiyai were a nocturnal race that children were told not to say the names of lest the monsters hear and come to carry off a person—sometimes to be killed</p>
-			<p>Some regional versions contained more nefarious creatures. The stiyaha or kwi-kwiyai were a nocturnal race that children were told not to say the names of lest the monsters hear and come to carry off a person—sometimes to be killed</p>
-		<h1 style="font-size: 40px;">THINGS WE LIKE</h1>
-			<p>Some regional versions contained more nefarious creatures. The stiyaha or kwi-kwiyai were a nocturnal race that children were told not to say the names of lest the monsters hear and come to carry off a person—sometimes to be killed</p>
-			<p>Some regional versions contained more nefarious creatures. The stiyaha or kwi-kwiyai were a nocturnal race that children were told not to say the names of lest the monsters hear and come to carry off a person—sometimes to be killed</p>
+		<h1 style="font-size: 40px;"><%= I18n.t(:how_we_work) %></h1>
+			<p><%= I18n.t(:how_we_work_text_1) %></p>
+			<p><%= I18n.t(:how_we_work_text_2) %></p>
+		<h1 style="font-size: 40px;"><%= I18n.t(:things_we_like) %></h1>
+			<p><%= I18n.t(:things_we_like_text_1) %></p>
+			<p><%= I18n.t(:things_we_like_text_2) %></p>
 	</section>
-
-<%= render partial: "shared/socials" %>
-
-<%= render partial: "shared/footer" %>

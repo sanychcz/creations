@@ -3,7 +3,8 @@ Creations::Application.routes.draw do
   match 'contact', to: 'welcome#contact'
   match 'about', to: 'welcome#about'
 
-  resources :users, :photos, :post_categories
+  resources :users, :photos
+  resources :post_categories, :path => "categories"
 
   resources :works do
     resources :posts

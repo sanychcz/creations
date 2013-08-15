@@ -15,16 +15,16 @@ class PostCategoriesController < ApplicationController
 	end
 
 	def destroy
-		PostCategory.find(params[:id]).destroy
+		PostCategory.find_by_name(params[:id]).destroy
 		redirect_to current_user
 	end
 
 	def edit
-		@post_category = PostCategory.find(params[:id])
+		@post_category = PostCategory.find_by_name(params[:id])
 	end
 
 	def update
-		@post_category = PostCategory.find(params[:id])
+		@post_category = PostCategory.find_by_name(params[:id])
 		if @post_category.update_attributes(params[:post_category])
 			redirect_to current_user
 		else
@@ -33,7 +33,7 @@ class PostCategoriesController < ApplicationController
 	end
 
 	def show
-		@post_category = PostCategory.find(params[:id])
+		@post_category = PostCategory.find_by_name(params[:id])
 		@works = Work.all
 		@post_categories = PostCategory.all
 	end
