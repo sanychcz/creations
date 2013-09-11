@@ -1,26 +1,28 @@
+<% provide(:title, "All categories") %>
+
 <%= render partial: "shared/top_picture" %>
 
-<section style="width:80%; margin: 30px 10%; text-align:center;">
-	<div class="test-spisok" style="width:60%; margin:auto; text-align:center;">
-	<ul>
+<section class="category_main_container">
+  <div class="category_list">
+    <ul>
 		<% if current_page?(works_path) %>
-			<li><%= link_to "Everything", works_path, :class => "active" %></li>
+			<li class="nonactive"><%= I18n.t(:everything) %></li>
 		<% else %>
-			<li><%= link_to "Everything", works_path, :class => "works-menu"  %></li>
+			<li><%= link_to I18n.t(:everything), works_path, :class => "works-menu-li" %></li>
 		<% end %>	
 
-	<% @post_categories.each do |pc| %>
-		<% if pc.name == @post_category.name %>
-			<li><%= link_to pc.name, pc, :class => "active" %></li>
-		<% else %>
-			<li><%= link_to pc.name, pc, :class => "works-menu" %></li>
-		<% end %>	
-	<% end %>
-</ul>
-</div>
+    <% @post_categories.each do |pc| %>
+		  <% if pc.name == @post_category.name %>
+      <li class="works-menu"><%= pc.name %></li>
+		  <% else %>
+			<li><%= link_to pc.name, pc, :class => "works-menu-li" %></li>
+		  <% end %>	
+    <% end %>
+    </ul>
+  </div>
 </section>
 
-<div style="width:70%; margin: auto 15%;"><hr/></div>
+<div style="category_hr"><hr/></div>
 
 <section id="teasers">
 	<%= render partial: "category_posts" %>

@@ -6,33 +6,33 @@
 	<% end %>
 <% end %>
 
-<section style="width:80%; margin: 30px 20%;">
-<div class="test-spisok" style="width:60%; margin:auto;">
-	<ul>
-	<% @work.posts.each do |post| %>
-		<% if @post.post_category == post.post_category %>
-			<li><%= link_to post.post_category, work_post_path(@work, post), {:class=>"active"}  %></li>
-		<% else %>
-			<li><%= link_to post.post_category, work_post_path(@work, post), {:class=>"nonactive"} %></li>
+<section class="post-category-container">
+	<div class="post-categories-list">
+		<ul>
+		<% @work.posts.each do |post| %>
+			<% if @post.post_category == post.post_category %>
+				<li class="nonactive"><%= post.post_category %></li>
+			<% else %>
+				<li><%= link_to post.post_category, work_post_path(@work, post), {:class=>"active"} %></li>
+			<% end %>
 		<% end %>
-	<% end %>
-</ul>
+		</ul>
 </div>
 </section>
 
-<div style="width:70%; margin:auto 15%;">
-	<div style="width:500px; margin: 35px auto 20px auto;">
-		<h1 style="display: inline; font-size: 40px; font-weight: bold; margin-right:30px;"><%= @work.name %></h1><h3 style="display: inline; font-size:25px;"><%= @post.subtitle %></h3>
+<div class="post-work-name-container">
+	<div class="post-work-name-container-inner">
+		<h1><%= @work.name %></h1><h3><%= @post.subtitle %></h3>
 	</div>	
 	<hr />
 </div>	
 
-<div class="test-spisok" style="width:70%; margin:auto 15%;">
-	<div style="width:90%; margin: 15px 5%; text-align:center;">
+<div class="post-info-panel-container">
+	<div class="post-info-panel-inner">
 		<ul>
-			<li style="color: #4CCAF6; margin: 0 5%;"><span style="color:black; font-weight: bold;"><%= I18n.t(:year) %></span> <%= @post.year %></li>
-			<li style="color: #4CCAF6; margin: 0 5%;"><span style="color:black; font-weight: bold;"><%= I18n.t(:industry) %></span> <%= @post.industry %></li>
-			<li style="color: #4CCAF6; margin: 0 5%;"><span style="color:black; font-weight: bold;"><%= I18n.t(:task) %></span> <%= @post.task %></li>
+			<li><span class="post-info-inner-span"><%= I18n.t(:year) %></span> <%= @post.year %></li>
+			<li><span class="post-info-inner-span"><%= I18n.t(:industry) %></span> <%= @post.industry %></li>
+			<li><span class="post-info-inner-span"><%= I18n.t(:task) %></span> <%= @post.task %></li>
 		</ul>
 	</div>
 	<hr />

@@ -1,10 +1,15 @@
+<% provide(:title, "About") %>
+
 <%= render partial: "shared/top_picture" %>
 
-	<section style="width:900px; margin:auto;">
-		<h1 style="font-size: 40px;"><%= I18n.t(:how_we_work) %></h1>
-			<p><%= I18n.t(:how_we_work_text_1) %></p>
-			<p><%= I18n.t(:how_we_work_text_2) %></p>
-		<h1 style="font-size: 40px;"><%= I18n.t(:things_we_like) %></h1>
-			<p><%= I18n.t(:things_we_like_text_1) %></p>
-			<p><%= I18n.t(:things_we_like_text_2) %></p>
-	</section>
+<section class="about-container">
+	<h1><%= I18n.t(:how_we_work) %></h1>
+	
+	<p><%= I18n.t(:how_we_work_text_1) %></p>
+	<p><%= I18n.t(:how_we_work_text_2) %></p>
+	
+	<h1><%= I18n.t(:things_we_like) %></h1>
+			
+	<p><%= I18n.t(:things_we_like_text_1) %></p>
+	<p><%= I18n.t(:things_we_like_text_2) %></p>
+</section>

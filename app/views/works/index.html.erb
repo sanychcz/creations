@@ -1,22 +1,24 @@
+<% provide(:title, "All works") %>
+
 <%= render partial: "shared/top_picture" %>
 
-<section style="width:80%; margin: 30px 10%; text-align:center;">
-	<div class="test-spisok" style="width:60%; margin:auto; text-align:center;">
-	<ul>
-	<% if current_page?(works_path) %>
-		<li><%= link_to "Everything", works_path, :class => "active" %></li>
-	<% else %>
-		<li><%= link_to "Everything", works_path, :class => "works-menu" %></li>
-	<% end %>	
+<section style="work-index-container">
+	<div class="work-index-inner-container">
+		<ul>
+		<% if current_page?(works_path) %>
+			<li class="nonactive"><%= I18n.t(:everything) %></li>
+		<% else %>
+			<li><%= link_to I18n.t(:everything), works_path, :class => "works-menu" %></li>
+		<% end %>	
 
-	<% @post_categories.each do |pc| %>
-		<li><%= link_to pc.name, pc, :class => "works-menu" %></li>
-	<% end %>
-</ul>
-</div>
+		<% @post_categories.each do |pc| %>
+			<li><%= link_to pc.name, pc, :class => "works-menu-li" %></li>
+		<% end %>
+		</ul>
+	</div>
 </section>
 
-	<div style="width:70%; margin: auto 15%;"><hr/></div>
+<div class="category_hr"><hr/></div>
 
 <section id="teasers">
 	<div id="teasers-wrapper">

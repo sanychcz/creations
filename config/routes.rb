@@ -2,13 +2,15 @@ Creations::Application.routes.draw do
 
   match 'contact', to: 'welcome#contact'
   match 'about', to: 'welcome#about'
-
+  
+    
   resources :users, :photos
   resources :post_categories, :path => "categories"
 
   resources :works do
     resources :posts
   end  
+
   
   resources :sessions, only: [:new, :create, :destroy]
 

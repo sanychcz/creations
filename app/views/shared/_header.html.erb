@@ -3,21 +3,30 @@
 		<%= link_to (image_tag ("mc_logo.png")), root_path %>
 	</div>
 	<div class="top_space"><p class="top_label"><%= I18n.t(:greeting) %></p>
-		<div class="languages">  
-		  <%= link_to "RU", :locale => 'ru' %>
-		  <%= link_to "CZ", :locale => 'cs' %>
-		  <%= link_to "EN", :locale => 'en' %>	
-		</div>
+		
 	</div>
-	<div id="menu">
-		<table>
-			<tr>
-				<td><%= link_to I18n.t(:menu_works), works_path, :class => "top-menu" %></td>
-				<td><%= link_to I18n.t(:menu_about), "/about", :class => "top-menu" %></td>
-				<td><%= link_to I18n.t(:menu_contact), "/contact", :class => "top-menu" %></td>	
-			</tr>
-		</table>	
+
+	<div id="nav">
+		<nav class="site_navigation">
+			<ul>
+				<li><%= link_to I18n.t(:menu_works), works_path %></li>
+				<li><%= link_to I18n.t(:menu_about), "/about" %></li>
+				<li><%= link_to I18n.t(:menu_contact), "/contact" %></li>
+			</ul>
+		</nav>
+		<ul id="jmenu">
+		  <li><%= I18n.locale %>
+		    <ul class="secondary-jmenu"> 
+		    	<% I18n.available_locales.each do |loc| %>
+		    		<% unless I18n.locale == loc  %>
+		    			<li><%= link_to "#{loc.upcase}", :locale => loc %></li>
+		    		<% end %>	
+		    	<% end %>
+		    </ul>
+		  </li>
+		</ul>
 	</div>
+
 	<div id="all-signout">
 		<% if signed_in? %>
 			<%= link_to "sign out", sign_out_path, method: "delete" %>  |
