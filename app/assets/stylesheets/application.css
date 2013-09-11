@@ -12,7 +12,7 @@
  *= require_tree .
  */
 
-html,body {
+html, body {
   margin:0;
   padding:0;
   background-color:#fff;
@@ -20,7 +20,7 @@ html,body {
   font-family: 'gotham_proregular';
 }
 
-#all-signout{
+#all-signout {
   position:absolute;
   top:0;
   right:0;
@@ -167,7 +167,6 @@ html,body {
   vertical-align:top;
 }
 
-
 #teasers .teaser-pic {
   border: none;
 }
@@ -186,7 +185,6 @@ html,body {
   width:260px;
   height:260px;
 }
-
 
 #teasers-wrapper {
   width: 96%;
@@ -368,5 +366,5 @@ only screen and (max-device-width : 940px){
 @media only screen and (max-width : 600px),
 only screen and (max-device-width : 600px){
     #teasers .wrap {width: 100%;}
-
+}
 
