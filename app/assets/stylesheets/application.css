@@ -12,18 +12,18 @@
  *= require_tree .
  */
 
-#all-signout{
-	position:absolute;
-	top:0;
-	right:0;
-}
-
 html,body {
   margin:0;
   padding:0;
   background-color:#fff;
   color:#535353;
   font-family: 'gotham_proregular';
+}
+
+#all-signout{
+  position:absolute;
+  top:0;
+  right:0;
 }
 
 #header {
@@ -148,9 +148,9 @@ html,body {
 /* Top image */
 
 #top-pic {
-  width:100%;
-  margin:0;
-  padding:0;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
 }
 
 .clear {
