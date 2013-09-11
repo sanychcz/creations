@@ -2,7 +2,7 @@ require "rvm/capistrano"
 require "bundler/capistrano"
 
 set :application, "creations.cz"
-set :deploy_to, "/home/#{application}"
+set :deploy_to, "/home/rails/#{application}"
 set :repository,  "git@github.com:sanychcz/creations.git"
 set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
