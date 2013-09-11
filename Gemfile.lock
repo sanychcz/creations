@@ -146,6 +146,6 @@ DEPENDENCIES
   rails-i18n
   rmagick
   rvm-capistrano
-  sass-rails (~> 3.2.3)
+  sass-rails
   therubyracer
   uglifier (>= 1.0.3)

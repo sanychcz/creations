@@ -80,7 +80,7 @@ html,body {
   margin-left: 260px; 
 }
 
-.site_navigation>ul {
+.site_navigation > ul {
   list-style:none;
 }
 
@@ -357,7 +357,8 @@ only screen and (max-device-width : 1200px){
 
 @media only screen and (max-width : 1070px),
 only screen and (max-device-width : 1070px){
-    .top_label{ display:none;}}
+    .top_label{ display:none;}
+}
 
 @media only screen and (max-width : 940px),
 only screen and (max-device-width : 940px){
