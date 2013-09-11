@@ -14,6 +14,7 @@ class PhotosController < ApplicationController
 			redirect_to @post
 		else
 			render 'new'
+		end
 	end
 
 	def destroy
