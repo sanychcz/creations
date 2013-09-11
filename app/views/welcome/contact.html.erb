@@ -2,8 +2,27 @@
 
 <%= render partial: "shared/top_picture" %>
 
-	<section class="contact-container">
-		<h1><%= I18n.t(:write_us) %> <%= mail_to "MIGHT@CREATIONS.CZ", "MIGHT@CREATIONS.CZ", {:class => "pages-links"} %></h1>
-		<h1><%= I18n.t(:call_us) %> +420 775 500 447</h1>
-		<h1><%= I18n.t(:visit_us) %> <%= link_to "LEGEROVA 39, PRAGUE 2, CZECH REPUBLIC", "http://www.mapy.cz/s/8ax2", {:class => "pages-links"} %> </h1>
-	</section>
+<section id="contacts">
+	<div id="left_column">
+		<div class="contacts_text">
+			<%= I18n.t(:write_us) %>
+		</div>	 
+		<div class="contacts_text">
+			<%= I18n.t(:call_us) %>
+		</div>
+		<div class="contacts_text">
+			<%= I18n.t(:visit_us) %>
+		</div>
+	</div>	
+	<div id="right_column">
+		<div class="contacts_text">			
+			<%= mail_to "MIGHT@CREATIONS.CZ", "MIGHT@CREATIONS.CZ", {:class => "pages-links"} %>
+		</div>
+		<div class="contacts_text contacts-text-phone">
+			+420 775 500 447
+		</div>
+		<div class="contacts_text">
+			<%= link_to "LEGEROVA 39, PRAGUE 2, CZECH REPUBLIC", "http://www.mapy.cz/s/8ax2"%> 
+		</div>
+	</div>		
+</section>

@@ -14,10 +14,6 @@
     font-style: normal;
 }
 
-a.pages-links {
-	color: #4CCAF6;	
-}
-
 .about-container {
 	width:900px; 
 	margin:auto;
@@ -30,4 +26,43 @@ a.pages-links {
 .contact-container {
 	width:700px; 
 	margin: 50px auto;
+}
+
+#contacts {
+  margin: 30px 5% 30px 12%;
+  padding: 20px 0 20px 0;
+  text-transform: uppercase;
+  font-size: 35px;
+  letter-spacing: 2px;
+  font-weight:bold;
+  width: 80%;
+  text-align: center;
+}
+
+#left_column {
+  padding: 0 20px 0 0;
+  vertical-align: top;
+  text-align:right;
+  color: #535353;
+  display:inline-block;
+}
+
+.contacts_text {
+  margin: 15px 0;
+}
+
+.contacts_text a {
+  color: #51C9F2;
+}
+
+.contacts-text-phone {
+  letter-spacing: 0px;
+}
+
+#right_column{
+  padding: 0 0 0 20px;
+  text-align:left;
+  color: #51c9f2;
+  display:inline-block;
+  width: 60%
 }

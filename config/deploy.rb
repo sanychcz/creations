@@ -2,15 +2,15 @@ require "rvm/capistrano"
 require "bundler/capistrano"
 
 set :application, "creations.cz"
-set :deploy_to, "/home/rails/#{application}"
+set :deploy_to, "/home/al/#{application}"
 set :repository,  "git@github.com:sanychcz/creations.git"
 set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 set :use_sudo, false
 set :deploy_via, :copy
 
-set :user, "rails"
-
+set :user, "al"
+set :rvm_type, :system
 
 role :web, application                          # Your HTTP server, Apache/etc
 role :app, application                          # This may be the same as your `Web` server
