@@ -33,5 +33,5 @@ production:
   pool: 5
   timeout: 5000
   username: al
-  password: 
+  password: al123
   host: localhost
