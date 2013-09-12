@@ -18,29 +18,6 @@ role :app, application                          # This may be the same as your `
 role :db,  application, :primary => true # This is where Rails migrations will run
 
 
-namespace :deploy do
-
-  desc <<-DESC
-  A macro-task that updates the code and fixes the symlink.
-  DESC
-  task :default do
-    transaction do
-      update_code
-      symlink
-    end
-  end
-
-  task :update_code, :except => { :no_release => true } do
-    on_rollback { run "rm -rf #{release_path}; true" }
-    strategy.deploy!
-  end
-
-  task :after_deploy do
-    cleanup
-  end
-
-end
-
 # if you want to clean up old releases on each deploy uncomment this:
 after "deploy:restart", "deploy:cleanup"
 
