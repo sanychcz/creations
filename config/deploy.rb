@@ -8,6 +8,7 @@ set :scm, :git # You can set :scm explicitly or Capistrano will make an intellig
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 set :use_sudo, false
 set :deploy_via, :copy
+set :branch, "master"
 
 set :user, "al"
 set :rvm_type, :system
@@ -17,8 +18,13 @@ role :app, application                          # This may be the same as your `
 role :db,  application, :primary => true # This is where Rails migrations will run
 
 
+task :update_code, :except => { :no_release => true } do
+  on_rollback { run "rm -rf #{release_path}; true" }
+  strategy.deploy!
+end
+
 # if you want to clean up old releases on each deploy uncomment this:
-# after "deploy:restart", "deploy:cleanup"
+after "deploy:restart", "deploy:cleanup"
 
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
