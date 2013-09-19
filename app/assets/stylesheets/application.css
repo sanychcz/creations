@@ -107,6 +107,7 @@ html, body {
 
 .nav-active a {
   color:#EF1B70;
+  text-decoration: none; 
 }
 
 .nav-nonactive a {
