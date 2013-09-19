@@ -107,7 +107,8 @@ html, body {
 
 .nav-active a {
   color:#EF1B70;
-  text-decoration: none; 
+  text-decoration: none;
+  border-bottom: none; 
 }
 
 .nav-nonactive a {
