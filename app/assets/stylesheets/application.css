@@ -154,6 +154,10 @@ html, body {
   background: rgba(66,199,245, 0.95);
 }
 
+.box.colour1 p {
+  font-family: 'gotham_proregular';
+}
+
 
 #work {
   width:100%;
