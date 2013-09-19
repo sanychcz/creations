@@ -106,13 +106,11 @@ html, body {
 /* HELPERS FOR CHANGE AUTO STYLE IN NAVIGATION */
 
 .nav-active a {
-  color:red;
-  font-size: 30px;
+  color:#EF1B70;
 }
 
 .nav-nonactive a {
-  color:yellow;
-  font-size: 30px;
+  color:#868686;
 }
 
 /* Section with image and block on main and static pages */
