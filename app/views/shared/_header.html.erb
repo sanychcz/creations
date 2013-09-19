@@ -1,36 +1,36 @@
 <section id="header">
-	<div class="logo">
-		<%= link_to (image_tag ("mc_logo.png")), root_path %>
-	</div>
-	<div class="top_space"><p class="top_label"><%= I18n.t(:greeting) %></p>
-		
-	</div>
+  <div class="logo">
+    <%= link_to (image_tag ("mc_logo.png")), root_path %>
+  </div>
+  <div class="top_space"><p class="top_label"><%= I18n.t(:greeting) %></p>
+    
+  </div>
 
-	<div id="nav">
-		<nav class="site_navigation">
-			<ul>
-				<li><%= link_to I18n.t(:menu_works), works_path %></li>
-				<li><%= link_to I18n.t(:menu_about), "/about" %></li>
-				<li><%= link_to I18n.t(:menu_contact), "/contact" %></li>
-			</ul>
-		</nav>
-		<ul id="jmenu">
-		  <li><%= I18n.locale %>
-		    <ul class="secondary-jmenu"> 
-		    	<% I18n.available_locales.each do |loc| %>
-		    		<% unless I18n.locale == loc  %>
-		    			<li><%= link_to "#{loc.upcase}", :locale => loc %></li>
-		    		<% end %>	
-		    	<% end %>
-		    </ul>
-		  </li>
-		</ul>
-	</div>
+  <div id="nav">
+    <nav class="site_navigation">
+      <ul>
+        <%= nav_link I18n.t(:menu_works), works_path %>
+        <%= nav_link I18n.t(:menu_about), "/about" %>
+        <%= nav_link I18n.t(:menu_contact), "/contact" %>
+      </ul>
+    </nav>
+    <ul id="jmenu">
+      <li><%= I18n.locale %>
+        <ul class="secondary-jmenu"> 
+          <% I18n.available_locales.each do |loc| %>
+            <% unless I18n.locale == loc  %>
+              <li><%= link_to "#{loc.upcase}", :locale => loc %></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </li>
+    </ul>
+  </div>
 
-	<div id="all-signout">
-		<% if signed_in? %>
-			<%= link_to "sign out", sign_out_path, method: "delete" %>  |
-			<%= link_to "profile", current_user %>
-		<% end %>
-	</div>	
-</section>	
+  <div id="all-signout">
+    <% if signed_in? %>
+      <%= link_to "sign out", sign_out_path, method: "delete" %>  |
+      <%= link_to "profile", current_user %>
+    <% end %>
+  </div>
+</section>

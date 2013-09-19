@@ -1,47 +1,47 @@
 <div id="user-show">
 
-	<div class="user-greeting">
-		<h1>Welcome, my Admin!</h1>
-	</div>	
+  <div class="user-greeting">
+    <h1>Welcome, my Admin!</h1>
+  </div>
 
-	<div class="user-possibilities">
-		<h1>You can:</h1>
+  <div class="user-possibilities">
+    <h1>You can:</h1>
 
-		<table>
-			<tr><%= link_to "create new work", new_work_path, :class=> "user-links" %></tr>
-			<tr>
-				<th>Work names</th>
-				<th></th>
-				<th></th>
-				<th></th>
-				<th></th>
-			</tr>
-			<% @works.each do |work| %>
-			<tr>
-				<td><%= work.name %></td>
-				<td><%= link_to "show", work, :class=> "user-links" %></td>
-				<td><%= link_to "edit", edit_work_path(work), :class=> "user-links" %></td>
-				<td><%= link_to "delete", work, method: :delete, data: { confirm: "You sure?" }, :class=> "user-links" %></td>
-			</tr>
-			<% end %>	
-		</table>
-		<hr />
-		<table>
-			<tr><%= link_to "create new item category", new_post_category_path, :class=> "user-links" %></tr>
-			<tr>
-				<th>Category names</th>
-				<th></th>
-				<th></th>
-			</tr>
-			<% @post_categories.each do |post_category| %>
-				<tr>
-					<td><%= post_category.name %></td>
-					<td><%= link_to "edit", edit_post_category_path(post_category), :class=> "user-links" %></td>
-					<td><%= link_to "delete", post_category_path(post_category), method: :delete, data: { confirm: "You sure?" }, :class=> "user-links" %></td>	
-			</tr>
-			<% end %>
-		</table>
-	</div>	
+    <table>
+      <tr><%= link_to "create new work", new_work_path, :class=> "user-links" %></tr>
+      <tr>
+        <th>Work names</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% @works.each do |work| %>
+      <tr>
+        <td><%= work.name %></td>
+        <td><%= link_to "show", work, :class=> "user-links" %></td>
+        <td><%= link_to "edit", edit_work_path(work), :class=> "user-links" %></td>
+        <td><%= link_to "delete", work, method: :delete, data: { confirm: "You sure?" }, :class=> "user-links" %></td>
+      </tr>
+      <% end %>
+    </table>
+    <hr />
+    <table>
+      <tr><%= link_to "create new item category", new_post_category_path, :class=> "user-links" %></tr>
+      <tr>
+        <th>Category names</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% @post_categories.each do |post_category| %>
+        <tr>
+          <td><%= post_category.name %></td>
+          <td><%= link_to "edit", edit_post_category_path(post_category), :class=> "user-links" %></td>
+          <td><%= link_to "delete", post_category_path(post_category), method: :delete, data: { confirm: "You sure?" }, :class=> "user-links" %></td> 
+      </tr>
+      <% end %>
+    </table>
+  </div>
 </div>
 
 

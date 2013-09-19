@@ -1,17 +1,17 @@
 <div class="post-part">
-	<%= raw(@post.description) %>
+  <%= raw(@post.description) %>
 </div>
-<div class="post-part-alt">	
-	<% @post.photos.each do |photo| %>
-		<% if photo.portfolio? %>
-			<%= image_tag photo.image_url.to_s %>
-			<div class="post-part"><%= photo.name %></div>
-		<% end %>
-	<% end %>
+<div class="post-part-alt"> 
+  <% @post.photos.each do |photo| %>
+    <% if photo.portfolio? %>
+      <%= image_tag photo.image_url.to_s %>
+      <div class="post-part"><%= photo.name %></div>
+    <% end %>
+  <% end %>
 </div>
 
 <% if signed_in? %>
-	<div class="post-part">
-		<%= link_to "delete post", work_post_path(@work, @post), method: :delete, data: { confirm: "You sure?" } %>  | <%= link_to "edit post", edit_work_post_path(@work, @post) %> | <%= link_to "back to work", work_path(@work) %> 
-	</div>
+  <div class="post-part">
+    <%= link_to "delete post", work_post_path(@work, @post), method: :delete, data: { confirm: "You sure?" } %>  | <%= link_to "edit post", edit_work_post_path(@work, @post) %> | <%= link_to "back to work", work_path(@work) %> 
+  </div>
 <% end %>

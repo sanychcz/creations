@@ -87,6 +87,8 @@ html, body {
 .site_navigation ul li {
   display: inline;
   padding-right: 7%;
+  color:#EF1B70;
+  font-size:30px;
 }
 
 .site_navigation a, a:visited {
@@ -99,6 +101,18 @@ html, body {
 .site_navigation a:hover {
   color:#46c4f0;
   border-bottom: 1px solid #0081ae;
+}
+
+/* HELPERS FOR CHANGE AUTO STYLE IN NAVIGATION */
+
+.nav-active a {
+  color:red;
+  font-size: 30px;
+}
+
+.nav-nonactive a {
+  color:yellow;
+  font-size: 30px;
 }
 
 /* Section with image and block on main and static pages */

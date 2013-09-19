@@ -12,6 +12,7 @@ gem "nested_form"
 gem 'ckeditor_rails'
 gem 'capistrano'
 gem 'rvm-capistrano'
+gem 'globalize3'
 
 group :development, :test do
 	gem 'pg'

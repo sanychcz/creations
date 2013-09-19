@@ -3,38 +3,38 @@
 <%= render partial: "shared/work_top_picture" %>
 
 <section style="work-index-container">
-	<div class="work-index-inner-container">
-		<ul>
-		<% if current_page?(works_path) %>
-			<li class="nonactive"><%= I18n.t(:everything) %></li>
-		<% else %>
-			<li><%= link_to I18n.t(:everything), works_path, :class => "works-menu" %></li>
-		<% end %>	
+  <div class="work-index-inner-container">
+    <ul>
+    <% if current_page?(works_path) %>
+      <li class="nonactive"><%= I18n.t(:everything) %></li>
+    <% else %>
+      <li><%= link_to I18n.t(:everything), works_path, :class => "works-menu" %></li>
+    <% end %> 
 
-		<% @post_categories.each do |pc| %>
-			<li><%= link_to pc.name, pc, :class => "works-menu-li" %></li>
-		<% end %>
-		</ul>
-	</div>
+    <% @post_categories.each do |pc| %>
+      <li><%= link_to pc.name, pc, :class => "works-menu-li" %></li>
+    <% end %>
+    </ul>
+  </div>
 </section>
 
 <div class="category_hr"><hr/></div>
 
 <section id="teasers">
-	<div id="teasers-wrapper">
-		<% @works.each do |work| %>
-			<% work.posts.each do |post| %>
-				<div class="wrap">
-					<% post.photos.each do |ph| %>
-						<% if ph.onmain? %>
-							<%= image_tag ph.image_url.to_s,  :class => "main-image" %>
-						<% end %>
-					<% end %>
-					<%= link_to post.title, work_post_path(work, post), :class => "post-title" %>
-					<%= post.annotation %>
-				</div>
-			<% end %>	
-		<% end %>
-	</div>	
+  <div id="teasers-wrapper">
+    <% @works.each do |work| %>
+      <% work.posts.each do |post| %>
+        <div class="wrap">
+          <% post.photos.each do |ph| %>
+            <% if ph.onmain? %>
+              <%= image_tag ph.image_url.to_s,  :class => "main-image" %>
+            <% end %>
+          <% end %>
+          <%= link_to post.title, work_post_path(work, post), :class => "post-title" %>
+          <%= post.annotation %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>  
 <div class="clear"></div>
 </section>

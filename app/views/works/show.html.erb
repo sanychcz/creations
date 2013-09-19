@@ -1,7 +1,7 @@
 <% provide(:title, @work.title) %>
 
 <div class="work-show-name">
-	<h1><%= @work.name %></h1>
+  <h1><%= @work.name %></h1>
 </div>
 
 <div class="work-show-table">
@@ -20,18 +20,18 @@
     <td><%= post.subtitle %></td>
     <td><%= post.post_category  %></td>
     <% if signed_in? %>
-    	<td><%= link_to 'show',  work_post_path(@work, post) %></td>
+      <td><%= link_to 'show',  work_post_path(@work, post) %></td>
       <td><%= link_to 'edit',  edit_work_post_path(@work, post) %></td>
-    	<td><%= link_to 'delete', work_post_path(@work, post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  	<% end %>
+      <td><%= link_to 'delete', work_post_path(@work, post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 </div>
 
 <% if signed_in? %>
-	<div class="work-show-sigin">
-		<p><%= link_to "add post to work", new_work_post_path(@work) %> | 
-		<%= link_to "edit work", edit_work_path(@work) %> | <%= link_to "delete work - #{@work.name}", work_path(@work), method: :delete, data: {confirm: "Are you seure?"} %></p>
-	<div>
-<% end %>	
+  <div class="work-show-sigin">
+    <p><%= link_to "add post to work", new_work_post_path(@work) %> | 
+    <%= link_to "edit work", edit_work_path(@work) %> | <%= link_to "delete work - #{@work.name}", work_path(@work), method: :delete, data: {confirm: "Are you seure?"} %></p>
+  <div>
+<% end %> 

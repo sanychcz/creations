@@ -60,5 +60,6 @@ module Creations
     config.assets.version = '1.0'
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
     config.assets.precompile += %w( .svg .eot .woff .ttf .otf )
+    config.i18n.fallbacks = true
   end
 end

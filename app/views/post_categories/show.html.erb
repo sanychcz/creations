@@ -2,21 +2,21 @@
 
 <%= render partial: "shared/top_picture" %>
 
-<section class="category_main_container">
-  <div class="category_list">
+<section class="category-main-container">
+  <div class="category-list">
     <ul>
-		<% if current_page?(works_path) %>
-			<li class="nonactive"><%= I18n.t(:everything) %></li>
-		<% else %>
-			<li><%= link_to I18n.t(:everything), works_path, :class => "works-menu-li" %></li>
-		<% end %>	
+    <% if current_page?(works_path) %>
+      <li class="nonactive"><%= I18n.t(:everything) %></li>
+    <% else %>
+      <li><%= link_to I18n.t(:everything), works_path, :class => "works-menu-li" %></li>
+    <% end %>
 
     <% @post_categories.each do |pc| %>
-		  <% if pc.name == @post_category.name %>
+      <% if pc.name == @post_category.name %>
       <li class="works-menu"><%= pc.name %></li>
-		  <% else %>
-			<li><%= link_to pc.name, pc, :class => "works-menu-li" %></li>
-		  <% end %>	
+      <% else %>
+      <li><%= link_to pc.name, pc, :class => "works-menu-li" %></li>
+      <% end %> 
     <% end %>
     </ul>
   </div>
@@ -25,5 +25,5 @@
 <div style="category_hr"><hr/></div>
 
 <section id="teasers">
-	<%= render partial: "category_posts" %>
+  <%= render partial: "category_posts" %>
 </section>

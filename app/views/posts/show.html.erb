@@ -1,41 +1,41 @@
 <% provide(:title, @post.title) %>
 
 <% @post.photos.each do |photo| %>
-	<% if photo.fullwidth? %>
-		<%= image_tag photo.image_url.to_s, :class => "fullwidth_pic" %>
-	<% end %>
+  <% if photo.fullwidth? %>
+    <%= image_tag photo.image_url.to_s, :class => "fullwidth_pic" %>
+  <% end %>
 <% end %>
 
 <section class="post-category-container">
-	<div class="post-categories-list">
-		<ul>
-		<% @work.posts.each do |post| %>
-			<% if @post.post_category == post.post_category %>
-				<li class="nonactive"><%= post.post_category %></li>
-			<% else %>
-				<li><%= link_to post.post_category, work_post_path(@work, post), {:class=>"active"} %></li>
-			<% end %>
-		<% end %>
-		</ul>
+  <div class="post-categories-list">
+    <ul>
+    <% @work.posts.each do |post| %>
+      <% if @post.post_category == post.post_category %>
+        <li class="nonactive"><%= post.post_category %></li>
+      <% else %>
+        <li><%= link_to post.post_category, work_post_path(@work, post), {:class=>"active"} %></li>
+      <% end %>
+    <% end %>
+    </ul>
 </div>
 </section>
 
 <div class="post-work-name-container">
-	<div class="post-work-name-container-inner">
-		<h1><%= @work.name %></h1><h3><%= @post.subtitle %></h3>
-	</div>	
-	<hr />
-</div>	
+  <div class="post-work-name-container-inner">
+    <h1><%= @work.name %></h1><h3><%= @post.subtitle %></h3>
+  </div>  
+  <hr />
+</div>  
 
 <div class="post-info-panel-container">
-	<div class="post-info-panel-inner">
-		<ul>
-			<li><span class="post-info-inner-span"><%= I18n.t(:year) %></span> <%= @post.year %></li>
-			<li><span class="post-info-inner-span"><%= I18n.t(:industry) %></span> <%= @post.industry %></li>
-			<li><span class="post-info-inner-span"><%= I18n.t(:task) %></span> <%= @post.task %></li>
-		</ul>
-	</div>
-	<hr />
-</div>	
+  <div class="post-info-panel-inner">
+    <ul>
+      <li><span class="post-info-inner-span"><%= I18n.t(:year) %></span> <%= @post.year %></li>
+      <li><span class="post-info-inner-span"><%= I18n.t(:industry) %></span> <%= @post.industry %></li>
+      <li><span class="post-info-inner-span"><%= I18n.t(:task) %></span> <%= @post.task %></li>
+    </ul>
+  </div>
+  <hr />
+</div>
 
 <%= render partial: @post %>

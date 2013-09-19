@@ -2,21 +2,21 @@
 
 <%= render partial: "shared/main_top_picture" %>
 
-	<section id="teasers">
-		<div id="teasers-wrapper">
-			<% @works.each do |work| %>
-				<% work.posts.each do |post| %>		
-						<% post.photos.each do |ph| %>
-							<% if ph.onmain? %>
-								<div class="wrap">
-									<%= image_tag ph.image_url.to_s,  :class => "main-image" %>
-									<%= link_to post.title, work_post_path(work, post), :class => "post-title" %> <%= post.annotation %>
-								</div>
-							<% end %>
-						<% end %>	
-				<% end %>	
-			<% end %>
-		</div>	
-		<div class="clear"></div>
-	</section>
+  <section id="teasers">
+    <div id="teasers-wrapper">
+      <% @works.each do |work| %>
+        <% work.posts.each do |post| %>
+            <% post.photos.each do |ph| %>
+              <% if ph.onmain? %>
+                <div class="wrap">
+                  <%= image_tag ph.image_url.to_s,  :class => "main-image" %>
+                  <%= link_to post.title, work_post_path(work, post), :class => "post-title" %> <%= post.annotation %>
+                </div>
+              <% end %>
+            <% end %> 
+        <% end %> 
+      <% end %>
+    </div>  
+    <div class="clear"></div>
+  </section>
 

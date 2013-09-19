@@ -1,14 +1,14 @@
 <% provide(:title, "Portfolio") %>
 
 <% @works.each do |work| %>
-	<% work.posts.each do |post| %>
-		<% post.photos.each do |ph| %>
-			<% if ph.onmain? %>
-				<%= image_tag ph.image_url.to_s,  :class => "main-image" %>
-			<% end %>
-		<% end %>
-		<%= link_to post.title, work_post_path(work, post) %>
-		<%= post.annotation %>
-	<% end %>				
+  <% work.posts.each do |post| %>
+    <% post.photos.each do |ph| %>
+      <% if ph.onmain? %>
+        <%= image_tag ph.image_url.to_s,  :class => "main-image" %>
+      <% end %>
+    <% end %>
+    <%= link_to post.title, work_post_path(work, post) %>
+    <%= post.annotation %>
+  <% end %>
 <% end %>
 

@@ -11,7 +11,7 @@
           <% for message in @user.errors.full_messages %>
             <li><%= message %></li>
           <% end %>
-        </ul>  
+        </ul>
       <% end %>
 
       <%= f.label :email %>
@@ -25,5 +25,5 @@
 
       <%= f.submit "Create", class: "signup-button" %>
     <% end %>
-  </div>  
+  </div>
 </div>
