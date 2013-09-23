@@ -1,5 +1,6 @@
 class PostCategoriesController < ApplicationController
   before_filter :signed_in_user, only: [:edit, :update, :create, :new, :destroy ]
+  layout :resolve_layout
 
   def new
     @post_category = PostCategory.new

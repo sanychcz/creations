@@ -1,14 +1,8 @@
 <% provide(:title, "New work") %>
 
-<h1>New work creation</h1>
+<div class="works-new-edit-container">
 
-<p>
-<%= form_for @work do |f| %>
+  <h1>New work creation</h1>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.submit %>
-
-<% end %>
-</p>
+  <%= render "works_form" %>
+</div>

@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_filter :signed_in_user, only: [:edit, :update, :create, :new, :destroy ]
+  layout :resolve_layout
 
   def new
     @work = Work.find(params[:work_id])
@@ -45,6 +46,17 @@ class PostsController < ApplicationController
     @work.posts.find(params[:id]).destroy
     redirect_to @work 
   end
+
+  private
+
+    def resolve_layout
+      case action_name
+      when "new", "create", "edit"
+        "admin"
+      else
+        "application"
+      end
+    end
 end
 
 

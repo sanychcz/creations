@@ -28,18 +28,28 @@ a.all-link {
 }
 
 .work-index-container {
-	width: 80%; 
+	width:80%; 
 	margin: 30px 10%; 
-	text-align: center;
+	text-align:center;
 }
 
 .work-index-inner-container {
-	width: 60%; 
-	margin: auto; 
-	text-align: center;
-	padding-top:30px;
+	width:60%; 
+	margin:auto; 
+	text-align:center;
 }
 
 .work-index-inner-container ul li {
-	display: inline;
+	display:inline;
+}
+
+.works-new-edit-container {
+	margin: 30px auto;
+	width:500px;
+	height:150px;
+}
+
+.works-form {
+	width: 150px;
+	height:auto;
 }

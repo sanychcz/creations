@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
    attr_accessible :title, :description, :annotation, :photos_attributes, :onmain, :name, :year, :post_category,
-   								 :year, :industry, :subtitle, :task, :work_id, :portfolio, :fullwidth
+                   :year, :industry, :subtitle, :task, :work_id, :portfolio, :fullwidth
 
    validates :title, presence: true
    validates :description, presence: true

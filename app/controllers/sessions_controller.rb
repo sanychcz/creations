@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  layout :resolve_layout
 
   def new 
   end
@@ -18,4 +19,15 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_url
   end
+
+  private
+
+    def resolve_layout
+      case action_name
+      when "new"
+        "admin"
+      else
+        "application"
+      end
+    end
 end

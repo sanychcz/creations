@@ -4,6 +4,6 @@ class PostCategory < ActiveRecord::Base
   translates :name
 
   def to_param
-  	name
+    name
   end
 end

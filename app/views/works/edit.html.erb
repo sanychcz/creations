@@ -1,12 +1,7 @@
-<h1>work edit</h1>
+<% provide(:title, "Edit work") %>
 
-<p>
-<%= form_for @work do |f| %>
+<div class="works-new-edit-container">
+  <h1>Work edit</h1>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.submit %>
-
-<% end %>
-</p>
+  <%= render "works_form" %>
+</div>

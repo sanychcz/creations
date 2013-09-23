@@ -1,0 +1,68 @@
+<div class="newpost-form">
+
+  <h3>Form is  for <%= I18n.locale.upcase %> language </h3>
+
+  <%= nested_form_for [@work, @post] do |f| %>
+    <% if @post.errors.any? %>
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @post.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <p><%= f.label :title %>
+    <%= f.text_field :title %></p>
+
+    <p><%= f.label :subtitle %>
+    <%= f.text_field :subtitle, :placeholder => "Corporate identity.. On Post page" %></p>
+
+    <p><%= f.label :annotation %>
+    <%= f.text_field :annotation, :placeholder => "Corporate identity and website.. On main & works page." %></p>
+
+    <p><%= f.label :year %>
+    <%= f.text_field :year %></p>
+
+    <p><%= f.label :industry %>
+    <%= f.text_field :industry %></p>
+
+    <p><%= f.label :task %>
+    <%= f.text_field :task %></p> 
+
+    <p><%= f.label :post_category %>
+    <%= f.collection_select :post_category, PostCategory.all, :name, :name %></p> 
+
+    <p><%= f.label :description %></p>
+    <p><%= f.text_area :description, :class => 'ckeditor' %></p> 
+
+    <%= f.fields_for :photos do |photo| %>
+    <div class="post-form-bg">
+      <p><%= photo.label "image name" %>
+      <%= photo.text_field :name %></p>
+      <p><%= photo.file_field :image %>
+      <%= photo.link_to_remove "Remove photo" %></p>
+      <p>"On main?"<%= photo.check_box :onmain %></p>
+      <p>"Show in portfolio?"<%= photo.check_box :portfolio %></p>
+      <p>"Fullwidth on top?"<%= photo.check_box :fullwidth %></p>
+    </div> 
+    <% end %>
+
+    <p><%= f.link_to_add "Add a photo", :photos %></p>
+
+    <%= f.submit "Save" %>
+  <% end %>
+
+  <% if signed_in? %>
+    <div class="post-part">
+      <%= link_to "back to work", work_path(@work) %>  
+    </div>
+  <% end %>
+</div>  
+
+<h3>You can also add translations in:
+<% I18n.available_locales.each do |locale| %>
+  <% unless locale == I18n.locale %>
+    <%= link_to "#{locale.upcase}", {:locale => locale}, :class => "add-translation" %>  
+  <% end %>
+<% end %></h3>

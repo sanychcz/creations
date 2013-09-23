@@ -1,5 +1,6 @@
 class WorksController < ApplicationController
   before_filter :signed_in_user, only: [:edit, :update, :create, :new, :destroy, :show ]
+  layout :resolve_layout
 
   def new
     @work = Work.new
@@ -40,4 +41,15 @@ class WorksController < ApplicationController
     @works = Work.all
     @post_categories = PostCategory.all
   end
+
+  private
+
+    def resolve_layout
+      case action_name
+      when "new", "create", "edit", "show"
+        "admin"
+      else
+        "application"
+      end
+    end
 end
