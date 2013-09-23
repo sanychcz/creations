@@ -10,11 +10,11 @@ scope "/:locale", locale: /en|ru|cs/ do
   end  
 end
 
-resources :sessions, only: [:new, :create, :destroy]
-
 scope "(:locale)", locale: /en|ru|cs/ do 
 
   root :to => 'welcome#index'
+
+  resources :sessions, only: [:new, :create, :destroy]
 
   match '/contact', to: 'welcome#contact'
   match '/about', to: 'welcome#about'

@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       redirect_to user
     else
       flash.now.alert = 'Invalid email or password'
-      render 'new'
+      render :action => "new", :layout => 'admin'
     end 
   end
 
