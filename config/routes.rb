@@ -1,8 +1,6 @@
 Creations::Application.routes.draw do
 
-  match 'contact', to: 'welcome#contact'
-  match 'about', to: 'welcome#about'
-  
+scope "/:locale", locale: /en|ru|cs/ do
     
   resources :users, :photos
   resources :post_categories, :path => "categories"
@@ -10,12 +8,21 @@ Creations::Application.routes.draw do
   resources :works do
     resources :posts
   end  
+end
 
-  
-  resources :sessions, only: [:new, :create, :destroy]
+resources :sessions, only: [:new, :create, :destroy]
 
-  match 'sign_in', to: 'sessions#new'
-  match 'sign_out', to: 'sessions#destroy', via: :delete
+scope "(:locale)", locale: /en|ru|cs/ do 
+
+  root :to => 'welcome#index'
+
+  match '/contact', to: 'welcome#contact'
+  match '/about', to: 'welcome#about'
+
+  match '/sign_in', to: 'sessions#new'
+  match '/sign_out', to: 'sessions#destroy', via: :delete
+
+end  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -66,7 +73,6 @@ Creations::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 

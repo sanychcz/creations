@@ -1,8 +1,17 @@
-<%= form_for @post_category do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<div class="post-cat-form">
+  <%= form_for @post_category do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
 
-  <%= f.submit %>
-<% end %>
+    <%= f.submit %>
+  <% end %>
 
-<p><%= link_to "back to profile", current_user %></p>
+  <p><%= link_to "back to profile", current_user %></p>
+</div>
+
+<h3>You can also add translations in:
+<% I18n.available_locales.each do |locale| %>
+  <% unless locale == I18n.locale %>
+    <%= link_to set_human_locale(locale), {:locale => locale}, :class => "add-translation" %>  
+  <% end %>
+<% end %></h3>

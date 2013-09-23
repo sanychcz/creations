@@ -12,8 +12,25 @@ module ApplicationHelper
 	def nav_link(link_text, link_path)
 	  class_name = current_page?(link_path) ? 'nav-active' : 'nav-nonactive'
 
-	  content_tag(:li, :class => class_name) do
-	    link_to link_text, link_path
-	  end
+	  if current_page?(link_path)
+	  	content_tag(:li, :class => class_name ) do
+	  		link_text
+			end
+		else		  		
+			content_tag(:li, :class => class_name) do
+	    	link_to link_text, link_path
+	  	end
+		end
+	end
+
+	def set_human_locale(locale)
+		case locale
+		when :cs
+			"Czech"
+		when :ru	
+			"Russian"
+		when :en
+			"English"	
+		end
 	end
 end

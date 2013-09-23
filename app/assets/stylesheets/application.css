@@ -290,6 +290,10 @@ html, body {
   vertical-align:top;
 }
 
+.footer-fonts {
+  font-family: 'gotham_proregular';
+}
+
 
 /* Drop-down menu */
 
