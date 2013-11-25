@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    @works = Work.latest
+    @posts = Post.recent
   end
 end

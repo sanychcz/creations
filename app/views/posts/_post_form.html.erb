@@ -1,6 +1,8 @@
-<div class="newpost-form">
+<section id="post-new-edit-form">
 
-  <h3>Form is  for <%= I18n.locale.upcase %> language </h3>
+  <%= render "/shared/add_translations" %>
+
+  <h3>Work name: <%= @work.name %></h3>
 
   <%= nested_form_for [@work, @post] do |f| %>
     <% if @post.errors.any? %>
@@ -52,17 +54,4 @@
 
     <%= f.submit "Save" %>
   <% end %>
-
-  <% if signed_in? %>
-    <div class="post-part">
-      <%= link_to "back to work", work_path(@work) %>  
-    </div>
-  <% end %>
-</div>  
-
-<h3>You can also add translations in:
-<% I18n.available_locales.each do |locale| %>
-  <% unless locale == I18n.locale %>
-    <%= link_to "#{locale.upcase}", {:locale => locale}, :class => "add-translation" %>  
-  <% end %>
-<% end %></h3>
+</section>  

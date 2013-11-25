@@ -1,0 +1,15 @@
+<% provide(:title, "Administration - Post categories") %>
+
+<section id="admin-post-categories-container">
+  <h1>All category names</h1>
+  <table>
+    <h4><%= link_to "create new item category", new_post_category_path, :class => "create-link" %></h4>
+    <% @post_categories.each do |post_category| %>
+      <tr>
+        <td><%= post_category.name %></td>
+        <td><%= link_to "edit", edit_post_category_path(post_category) %></td>
+        <td><%= link_to "delete", post_category_path(post_category), method: :delete, data: { confirm: "You sure?" } %></td> 
+    </tr>
+    <% end %>
+  </table>
+</section>

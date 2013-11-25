@@ -1,9 +1,9 @@
 class PostCategory < ActiveRecord::Base
-  attr_accessible :name
 
   translates :name
 
   def to_param
-    name
+    "#{id}-#{name.parameterize}"
   end
+
 end

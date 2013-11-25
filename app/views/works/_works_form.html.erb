@@ -1,4 +1,7 @@
-<div class="works-form">
+<section id="work-new-edit-form">
+
+  <%= render "/shared/add_translations" %>
+
   <%= form_for @work do |f| %>
 
     <%= f.label :name, I18n.locale %>
@@ -6,13 +9,4 @@
 
     <%= f.submit "Save" %>
   <% end %>
-
-  <p><%= link_to "back to profile", current_user %></p>
-</div>
-
-<h3>You can also add translations in:
-<% I18n.available_locales.each do |locale| %>
-  <% unless locale == I18n.locale %>
-    <%= link_to "#{locale.upcase}", {:locale => locale}, :class => "add-translation" %>  
-  <% end %>
-<% end %></h3>
+</section>

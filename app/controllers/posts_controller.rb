@@ -9,9 +9,9 @@ class PostsController < ApplicationController
 
   def create
     @work = Work.find(params[:work_id])
-    @post = @work.posts.build(params[:post])
+    @post = @work.posts.build(post_params)
     if @post.save
-      redirect_to work_post_path(@work, @post)
+      redirect_to "/admin/posts"
     else
       render 'new'
     end
@@ -34,8 +34,8 @@ class PostsController < ApplicationController
   def update
     @work = Work.find(params[:work_id])
     @post = @work.posts.find(params[:id])
-    if @post.update_attributes(params[:post])
-      redirect_to work_post_path(@work, @post)
+    if @post.update_attributes(post_params)
+      redirect_to "/admin/posts"
     else
       render 'edit'
     end
@@ -44,7 +44,7 @@ class PostsController < ApplicationController
   def destroy
     @work = Work.find(params[:work_id])
     @work.posts.find(params[:id]).destroy
-    redirect_to @work 
+    redirect_to "/admin/posts"
   end
 
   private
@@ -57,6 +57,8 @@ class PostsController < ApplicationController
         "application"
       end
     end
+
+    def post_params
+      params.require(:post).permit!
+    end
 end
-
-

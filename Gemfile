@@ -1,18 +1,18 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '4.0.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'bcrypt-ruby'
+gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'carrierwave'
 gem 'rmagick'
 gem "nested_form"
 gem 'ckeditor_rails'
 gem 'capistrano'
 gem 'rvm-capistrano'
-gem 'globalize3'
+gem 'globalize3', git: 'git://github.com/svenfuchs/globalize3.git', branch: 'rails4'
 
 group :development, :test do
 	gem 'pg'
@@ -26,12 +26,12 @@ end
 # in production environments by default.
 group :assets do
   gem 'sass-rails'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'coffee-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
 
-  gem 'uglifier', '>= 1.0.3'
+  gem 'uglifier'
 end
 
 gem 'jquery-rails'

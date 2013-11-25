@@ -1,0 +1,26 @@
+<% provide(:title, "Administration - Posts") %>
+
+<section id="admin-posts-container">
+  <h1>All posts</h1>
+  <% @works.each do |work| %>
+    <h2><%= work.name %></h2>
+    <h4><%= link_to "add post to work", new_work_post_path(work), :class => "create-link" %></h4>
+    <table>
+      <tr>
+        <th>Post name</th>
+        <th>Post subtitle</th>
+        <th>Post category</th>
+      </tr>    
+      <% work.posts.each do |post| %>
+        <tr>
+          <td><%= post.title %></td>
+          <td><%= post.subtitle %></td>
+          <td><%= post.post_category  %></td>
+          <td><%= link_to 'show',  work_post_path(work, post) %></td>
+          <td><%= link_to 'edit',  edit_work_post_path(work, post) %></td>
+          <td><%= link_to 'delete', work_post_path(work, post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>    
+</section>

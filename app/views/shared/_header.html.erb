@@ -29,8 +29,8 @@
 
   <div id="all-signout">
     <% if signed_in? %>
-      <%= link_to "sign out", sign_out_path, method: "delete" %>  |
-      <%= link_to "profile", current_user %>
+      <%= link_to "sign out", sign_out_path, method: 'delete' %>  |
+      <%= link_to "admin", "/admin" %>
     <% end %>
   </div>
 </section>

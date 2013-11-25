@@ -2,61 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#user-new-form {
+	width:90%;
+  margin:50px auto; 
 
-#users {
-	width: 277px;
-	height: auto;
-	margin:100px auto;
-	background-color: #3294d4;
-}	
-
-#users h1 {
-	color:#f6f6f6;
-	padding:30px 30px 0px 30px; 
-	margin:auto;	
-}
-
-.signup-form {
-	padding: 30px;
-	max-width: 100%;
-	margin:auto;
-	position:relative;
-}
-
-.signup-form label {
-	color: white;
-	font-weight:bold;
-}
-
-.signup-form input {
-	border: 0;
-}
-
-input.signup-button {
-	width: 80px;
-	height: 40px;
-	background-color: #31ba9c;
-	margin: 40px auto 0px auto;
-	display:block;
-	color: white;
-	font-weight:bold;
-	font-size: 18px;
-}
-
-#user-show {
-	background-color: #10c3d4;
-	width:600px;
-	padding:30px;
-	margin:100px auto 0 auto;
-}
-
-#user-show .user-greeting h1 {
-	background-color: white;
-}
-
-#user-show .user-possibilities h1 {
-	color:white;
-}
+  h1 {
+  color:black;
+  }	
+} 
 
 a.user-links {
 	color: white;

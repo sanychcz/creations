@@ -1,10 +1,14 @@
 <% provide(:title, @post.title) %>
 
-<% @post.photos.each do |photo| %>
-  <% if photo.fullwidth? %>
-    <%= image_tag photo.image_url.to_s, :class => "fullwidth_pic" %>
+<section class="post-top-image" >
+  <% @post.photos.each do |photo| %>
+    <% if photo.fullwidth? %>        
+      <style media="screen">
+        .post-top-image { background-image: url(<%= photo.image_url.to_s %>); }
+      </style>
+    <% end %>
   <% end %>
-<% end %>
+</section>
 
 <section class="post-category-container">
   <div class="post-categories-list">

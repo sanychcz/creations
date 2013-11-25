@@ -2,7 +2,8 @@ Creations::Application.routes.draw do
 
 scope "/:locale", locale: /en|ru|cs/ do
     
-  resources :users, :photos
+  resources :users, only: [:new, :create, :destroy] 
+  resources :photos
   resources :post_categories, :path => "categories"
 
   resources :works do
@@ -16,11 +17,17 @@ scope "(:locale)", locale: /en|ru|cs/ do
 
   resources :sessions, only: [:new, :create, :destroy]
 
-  match '/contact', to: 'welcome#contact'
-  match '/about', to: 'welcome#about'
+  get '/sign_in' => 'sessions#new'
+  match '/sign_out' => 'sessions#destroy', via: :delete
 
-  match '/sign_in', to: 'sessions#new'
-  match '/sign_out', to: 'sessions#destroy', via: :delete
+  get '/contact' => 'welcome#contact'
+  get '/about' => 'welcome#about'
+
+  get '/admin' => "admin#admin"
+  get '/admin/categories' => "admin#admin_categories"
+  get '/admin/works' => "admin#admin_works"
+  get '/admin/posts' => "admin#admin_posts"
+  get '/admin/users' => "admin#admin_users"
 
 end  
 

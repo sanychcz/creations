@@ -9,7 +9,7 @@ class PhotosController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    @photo = @post.photos.build(params[:photo])
+    @photo = @post.photos.build(photo_params)
     if @photo.save
       redirect_to @post
     else
@@ -23,4 +23,9 @@ class PhotosController < ApplicationController
     redirect_to @post
   end
 
+  private 
+
+  def photo_params
+    params.require(:photo).permit!
+  end
 end

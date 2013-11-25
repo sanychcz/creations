@@ -1,0 +1,132 @@
+// Place all the styles related to the admin controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#admin-title h1 {
+  color: black;
+  width: 60%;
+  margin: 5% auto;
+}
+
+#admin-container {
+  width:60%;
+  margin: 1% auto;
+}
+
+#admin-inner-container {
+  width:100%;
+  margin: 1% auto;
+}
+
+#admin-navigation {
+  width:90%;
+  margin: 0 5%;
+  height:50px;
+}
+
+#admin-pages {
+  width: 70%;
+  float:left;
+  background-color: #e3fffb;
+  ul li {
+    display: inline;  
+  }
+
+  a {
+    color: black;
+    padding:10px;
+    margin-top:10px;
+  }
+
+  a:hover {
+    color: red;
+  }
+}
+
+#admin-actions {
+  width: 30%;
+  height: 50px;
+  float: right;
+  background-color: #1d4557;
+
+  ul li {
+    display: inline;   
+  }
+
+  a {
+    color: white;
+    padding:10px;
+    margin-top:10px;
+  }
+} 
+
+#admin-cleaner {
+  clear:both;
+}
+
+#admin-post-categories-container {
+  width:90%;
+  margin:50px auto;
+  
+  h1 {
+    color:black;
+  }
+
+  table a {
+    color: black;
+  }
+}
+
+#admin-works-container {
+  width:90%;
+  margin:50px auto;
+
+  h1 {
+    color:black;
+  }
+
+  table a {
+    color: black;
+  }
+}
+
+#admin-users-container {
+  width:90%;
+  margin:50px auto;
+
+  h1 {
+    color:black;
+  }
+
+  table a {
+    color: black;
+  }
+}
+
+#admin-posts-container {
+  width:90%;
+  margin:50px auto;
+
+  h1 {
+    color:black;
+  }
+
+  table {
+    width:60%;
+    text-align:left;
+    th {
+      background-color: #edf8da;
+    }
+
+    a {
+      color: black;
+    }
+  }
+}
+
+a.create-link {
+  padding:5px;
+  background-color: #5f7272;
+  color: white;
+  font-size: 12px;
+}

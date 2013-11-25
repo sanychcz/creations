@@ -1,0 +1,15 @@
+<% provide(:title, "Administration - Works") %>
+
+<section id="admin-works-container">
+  <h1>All works</h1>
+  <table>
+    <h4><%= link_to "create new work", new_work_path, :class => "create-link" %></h4>
+    <% @works.each do |work| %>
+      <tr>
+        <td><%= work.name %></td>
+        <td><%= link_to "edit", edit_work_path(work) %></td>
+        <td><%= link_to "delete", work_path(work), method: :delete, data: { confirm: "You sure?" } %></td> 
+    </tr>
+    <% end %>
+  </table>
+</section>

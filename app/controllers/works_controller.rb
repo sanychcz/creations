@@ -7,9 +7,9 @@ class WorksController < ApplicationController
   end
 
   def create
-    @work = Work.new(params[:work])
+    @work = Work.new(work_params)
     if @work.save
-      redirect_to @work
+      redirect_to "/admin/works"
     else
       render 'new'
     end
@@ -21,8 +21,8 @@ class WorksController < ApplicationController
 
   def update
     @work = Work.find(params[:id])
-    if @work.update_attributes(params[:work])
-      redirect_to @work
+    if @work.update_attributes(work_params)
+      redirect_to "/admin/works"
     else
       render 'edit'
     end
@@ -30,7 +30,7 @@ class WorksController < ApplicationController
 
   def destroy
     @work = Work.find(params[:id]).destroy
-    redirect_to current_user
+    redirect_to "/admin/works"
   end
 
   def show
@@ -51,5 +51,9 @@ class WorksController < ApplicationController
       else
         "application"
       end
+    end
+
+    def work_params
+      params.require(:work).permit(:name, :post_ids => [])  
     end
 end

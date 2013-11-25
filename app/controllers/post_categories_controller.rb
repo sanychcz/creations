@@ -7,34 +7,34 @@ class PostCategoriesController < ApplicationController
   end
 
   def create
-    @post_category = PostCategory.new(params[:post_category])
+    @post_category = PostCategory.new(post_category_params)
     if @post_category.save
-      redirect_to current_user
+      redirect_to "/admin/categories"
     else
       render 'new'
     end
   end
 
   def destroy
-    PostCategory.find_by_name(params[:id]).destroy
-    redirect_to current_user
+    PostCategory.find(params[:id]).destroy
+    redirect_to "/admin/categories"
   end
 
   def edit
-    @post_category = PostCategory.find_by_name(params[:id])
+    @post_category = PostCategory.find(params[:id])
   end
 
   def update
-    @post_category = PostCategory.find_by_name(params[:id])
-    if @post_category.update_attributes(params[:post_category])
-      redirect_to current_user
+    @post_category = PostCategory.find(params[:id])
+    if @post_category.update_attributes(post_category_params)
+      redirect_to "/admin/categories"
     else
       render 'edit'
     end 
   end
 
   def show
-    @post_category = PostCategory.find_by_name(params[:id])
+    @post_category = PostCategory.find(params[:id])
     @works = Work.all
     @post_categories = PostCategory.all
   end
@@ -48,5 +48,9 @@ class PostCategoriesController < ApplicationController
       else
         "application"
       end
+    end
+
+    def post_category_params
+      params.require(:post_category).permit(:name)
     end
 end
