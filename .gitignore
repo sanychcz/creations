@@ -11,11 +11,11 @@
 /db/*.sqlite3
 
 # Ignore database config.
-config/database.yml
+/config/database.yml
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
 
 # Ignore deploy.rb
-config/deploy.rb
+/config/deploy.rb
